@@ -164,7 +164,7 @@ public class OnTrigger : MonoBehaviour
 
     IEnumerator waitForWinPanel()
     {
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(3);
 
         winPanel.SetActive(true);
     }
