@@ -73,11 +73,10 @@ public class OnTrigger : MonoBehaviour
 
         } else if ((other.gameObject.tag == "goldKey"))
         {
+            Destroy(other.gameObject);
             audioLibrary.PlaySound("live");
-            Destroy(other.gameObject); 
             keysCounter++;
             keysCounterText.text = $"{keysCounter}";
-            //Time.timeScale = 0f;
             winParticles.Play();
             winParticles2.Play();
             StartCoroutine(waitForWinPanel());
@@ -165,7 +164,7 @@ public class OnTrigger : MonoBehaviour
 
     IEnumerator waitForWinPanel()
     {
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(5);
 
         winPanel.SetActive(true);
     }
