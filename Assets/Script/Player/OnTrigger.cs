@@ -149,6 +149,12 @@ public class OnTrigger : MonoBehaviour
             Instantiate(goldKey, new Vector3(152.55f, 10f, 0), Quaternion.identity);
         }
 
+        //every time the player jumps into the void he will lose a life
+
+        if (other.CompareTag("respawn"))
+        {
+            healthScript.GetDamage();
+        }
     }
 
     //coroutine to change color and disable vignette
@@ -164,7 +170,7 @@ public class OnTrigger : MonoBehaviour
 
     IEnumerator waitForWinPanel()
     {
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(5);
 
         winPanel.SetActive(true);
     }

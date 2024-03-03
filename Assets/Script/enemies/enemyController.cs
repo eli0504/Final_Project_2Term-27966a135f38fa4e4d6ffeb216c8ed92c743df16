@@ -18,7 +18,9 @@ public class enemyController : MonoBehaviour
 
     //clamp
     public float minY; 
-    public float maxY; 
+    public float maxY;
+    public float maxX;
+    public float minX;
 
     private void Awake()
     {
@@ -35,12 +37,19 @@ public class enemyController : MonoBehaviour
     {
         //clamp Y pos
 
-        Vector3 actualPos = transform.position;
+        Vector3 actualYPos = transform.position;
    
-        float newYPos = Mathf.Clamp(actualPos.y, minY, maxY);
+        float newYPos = Mathf.Clamp(actualYPos.y, minY, maxY);
 
-        transform.position = new Vector3(actualPos.x, newYPos, actualPos.z);
+        transform.position = new Vector3(actualYPos.x, newYPos, actualYPos.z);
 
+        //clamp X pos
+
+        Vector3 actualXPos = transform.position;
+
+        float newXPos = Mathf.Clamp(actualXPos.x, minX, maxX);
+
+        transform.position = new Vector3(newXPos, actualXPos.y, actualXPos.z);
 
         //Stats
         float distance = Vector3.Distance(player.position, transform.position);
