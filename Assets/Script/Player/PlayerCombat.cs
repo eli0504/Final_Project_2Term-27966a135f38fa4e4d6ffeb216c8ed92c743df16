@@ -53,7 +53,7 @@ public class PlayerCombat : MonoBehaviour
     }
 
     //visual
-    private void OnDrawGizmosSelected()
+    private void OnDrawGizmos()
     {
         if(attackPoint == null)
         {

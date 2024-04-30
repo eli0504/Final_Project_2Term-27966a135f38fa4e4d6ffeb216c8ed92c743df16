@@ -468,6 +468,7 @@ GameObject:
   m_Component:
   - component: {fileID: 72450747}
   - component: {fileID: 72450748}
+  - component: {fileID: 72450749}
   m_Layer: 5
   m_Name: HealthBar
   m_TagString: Untagged
@@ -547,6 +548,19 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &72450749
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 72450746}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f21c805a6319b14d9c5590fdb7e2164, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slider: {fileID: 72450748}
 --- !u!1 &97743231
 GameObject:
   m_ObjectHideFlags: 0
@@ -1072,8 +1086,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 40.299995, y: -2.1000137}
-  m_SizeDelta: {x: -298.8, y: -60.80001}
+  m_AnchoredPosition: {x: 41.99502, y: 0}
+  m_SizeDelta: {x: -303.99005, y: -60.000004}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &400763297
 MonoBehaviour:
@@ -18603,7 +18617,6 @@ GameObject:
   - component: {fileID: 1874632874}
   - component: {fileID: 1874632873}
   - component: {fileID: 1874632877}
-  - component: {fileID: 1874632876}
   - component: {fileID: 1874632878}
   - component: {fileID: 1874632879}
   m_Layer: 0
@@ -18677,7 +18690,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: -750047184722822154, guid: 1914d95466e3d4341a618c35a56d5f82, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 1
+  m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1.4, y: 0.93}
@@ -18695,24 +18708,13 @@ Transform:
   m_GameObject: {fileID: 1874632872}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.6, y: 2.04, z: 0}
+  m_LocalPosition: {x: -4.6, y: 0.4, z: 0}
   m_LocalScale: {x: 13.04, y: 13.04, z: 13.04}
   m_ConstrainProportionsScale: 1
-  m_Children: []
+  m_Children:
+  - {fileID: 2096214815}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1874632876
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1874632872}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f21c805a6319b14d9c5590fdb7e2164, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1874632877
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18725,10 +18727,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b15bf0bd7950a144b7b05421a8ff6fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rigidbody: {fileID: 1874632878}
+  rb2D: {fileID: 0}
   player: {fileID: 1641079864}
   health: 100
-  healthBar: {fileID: 1874632876}
+  healthBar: {fileID: 72450749}
+  attackControl: {fileID: 2096214815}
+  attackRadius: 4
+  attackDamage: 20
 --- !u!50 &1874632878
 Rigidbody2D:
   serializedVersion: 4
@@ -18788,10 +18793,10 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.353324, y: -0.18232411}
+  m_Offset: {x: -0.011792213, y: -0.052033395}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.756995, y: 0.3618295}
     oldSize: {x: 1.4, y: 0.93}
     newSize: {x: 1.4, y: 0.93}
     adaptiveTilingThreshold: 0.5
@@ -18799,7 +18804,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.42513335, y: 0.56535184}
+  m_Size: {x: 0.4096198, y: 0.5540222}
   m_EdgeRadius: 0
 --- !u!1 &1912924479
 GameObject:
@@ -19551,6 +19556,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &2096214814
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2096214815}
+  m_Layer: 0
+  m_Name: attack
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2096214815
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2096214814}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.72, y: -0.04, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1874632875}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2111106135
 GameObject:
   m_ObjectHideFlags: 0

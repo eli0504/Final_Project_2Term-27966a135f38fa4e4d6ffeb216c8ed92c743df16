@@ -5,21 +5,35 @@ using UnityEngine;
 public class FinalBoss : MonoBehaviour
 {
     private Animator animator;
-    public Rigidbody2D rigidbody;
+
+    public Rigidbody2D rb2D;
 
     public Transform player;
 
     private bool lookAtRight = true;
 
+    //HEALTH
     [SerializeField] private float health;
-    [SerializeField] HealthBar healthBar;
+    [SerializeField] private HealthBar healthBar;
+
+    //ATTACK
+    [SerializeField] private Transform attackControl;
+    [SerializeField] private float attackRadius;
+    [SerializeField] private float attackDamage;
+
 
     private void Start()
     {
         animator = GetComponent<Animator>();
-        rigidbody = GetComponent<Rigidbody2D>();
+        rb2D = GetComponent<Rigidbody2D>();
         healthBar.InitializeHealthBar(health);
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+    }
+
+    private void Update()
+    {
+        float distanciaJugador = Vector2.Distance(transform.position, player.position);
+        animator.SetFloat("distanciaJugador", distanciaJugador);
     }
 
     public void TakeHit(float damage)
@@ -30,6 +44,18 @@ public class FinalBoss : MonoBehaviour
         if(health <= 0)
         {
             animator.SetTrigger("death");
+        }
+    }
+
+    public void Attack()
+    {
+        Collider2D[] items = Physics2D.OverlapCircleAll(attackControl.position, attackRadius);
+        foreach(Collider2D collision in items)
+        {
+            if (collision.CompareTag("Player"))
+            {
+                collision.GetComponent<Health>().GetDamage();
+            }
         }
     }
 
@@ -45,5 +71,11 @@ public class FinalBoss : MonoBehaviour
             lookAtRight = !lookAtRight;
             transform.eulerAngles = new Vector3(0, transform.eulerAngles.y + 180, 0);
         }
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(attackControl.position, attackRadius);
     }
 }
