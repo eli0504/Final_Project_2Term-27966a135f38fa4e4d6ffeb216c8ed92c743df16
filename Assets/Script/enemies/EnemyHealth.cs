@@ -12,13 +12,11 @@ public class EnemyHealth : MonoBehaviour
 
     public float damageValue = 35f; //damage from the player
 
-
     private void Start()
     {
         anim = GetComponent<Animator>();
 
         currentHealth = maxHealth;
-
     }
 
     public void TakeDamage()

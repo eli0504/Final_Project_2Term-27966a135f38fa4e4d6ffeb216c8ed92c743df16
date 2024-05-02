@@ -16,6 +16,7 @@ public class FinalBoss : MonoBehaviour
     [SerializeField] private float health;
     [SerializeField] private HealthBar healthBar;
 
+
     //ATTACK
     [SerializeField] private Transform attackControl;
     [SerializeField] private float attackRadius;
@@ -24,6 +25,7 @@ public class FinalBoss : MonoBehaviour
 
     private void Start()
     {
+       
         animator = GetComponent<Animator>();
         rb2D = GetComponent<Rigidbody2D>();
         healthBar.InitializeHealthBar(health);
@@ -32,8 +34,8 @@ public class FinalBoss : MonoBehaviour
 
     private void Update()
     {
-        float distanciaJugador = Vector2.Distance(transform.position, player.position);
-        animator.SetFloat("distanciaJugador", distanciaJugador);
+        float distance = Vector2.Distance(transform.position, player.position);
+        animator.SetFloat("distance", distance);
     }
 
     public void TakeHit(float damage)
@@ -44,6 +46,7 @@ public class FinalBoss : MonoBehaviour
         if(health <= 0)
         {
             animator.SetTrigger("death");
+            Death();
         }
     }
 

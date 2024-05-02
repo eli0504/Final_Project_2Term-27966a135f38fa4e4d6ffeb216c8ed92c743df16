@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class walk_boss_behaviour : StateMachineBehaviour
 {
-    private FinalBoss finalBoss;
+    /*private FinalBoss finalBoss;
     private Rigidbody2D rb2D;
     [SerializeField] private float velocityMovement;
 
@@ -39,5 +39,5 @@ public class walk_boss_behaviour : StateMachineBehaviour
     //override public void OnStateIK(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     //{
         // Implement code that sets up animation IK (inverse kinematics)
-    //}
+    //}*/
 }

@@ -26,6 +26,7 @@ TagManager:
   - Edge2
   - attack
   - Edge3
+  - boss
   layers:
   - Default
   - TransparentFX

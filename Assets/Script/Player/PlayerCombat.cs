@@ -14,6 +14,7 @@ public class PlayerCombat : MonoBehaviour
     public float attackRange = 0.5f;
     public int attackDamage = 40;
 
+    [SerializeField]  private float damage;
     private void Start()
     {
         enemyHealth = GetComponent<EnemyHealth>();
@@ -49,7 +50,6 @@ public class PlayerCombat : MonoBehaviour
         {
             enemyHealth.TakeDamage();
         }
-          
     }
 
     //visual
