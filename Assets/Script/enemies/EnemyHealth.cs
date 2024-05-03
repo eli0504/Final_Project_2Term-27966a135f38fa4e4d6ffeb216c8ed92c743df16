@@ -7,16 +7,20 @@ public class EnemyHealth : MonoBehaviour
 {
     public Animator anim;
 
-    public int maxHealth = 100;
-    private float currentHealth;
+    public HealthBar healthBar;
 
-    public float damageValue = 35f; //damage from the player
+
+    public int maxHealth = 100;
+    private int currentHealth;
+
+    public int damageValue = 35; //damage from the player
 
     private void Start()
     {
         anim = GetComponent<Animator>();
 
         currentHealth = maxHealth;
+        healthBar.SetMaxHealth(maxHealth);
     }
 
     public void TakeDamage()
@@ -24,7 +28,7 @@ public class EnemyHealth : MonoBehaviour
         // Reduce enemy health when taking damage
         currentHealth -= damageValue;
         // Make sure health is not less than zero
-        currentHealth = Mathf.Max(currentHealth, 0f);
+        currentHealth = Mathf.Max(currentHealth, 0);
         anim.SetTrigger("hurt");
 
         if (currentHealth <= 0)
@@ -32,6 +36,8 @@ public class EnemyHealth : MonoBehaviour
             Died();
             anim.SetBool("isDead", true);
         }
+
+        healthBar.SetHealth(currentHealth);
     }
 
     private void Died()

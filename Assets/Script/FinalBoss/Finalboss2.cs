@@ -23,16 +23,13 @@ public class Finalboss2 : MonoBehaviour
     public float maxX;
     public float minX;
 
-    [SerializeField] private float health;
-    [SerializeField] private HealthBar healthBar;
-
     private void Awake()
     {
         anim = GetComponent<Animator>();
     }
     private void Start()
     {
-        healthBar.InitializeHealthBar(health);
+        
 
         Invoke("SetCurrentPoint", 1f);
     }
@@ -121,14 +118,14 @@ public class Finalboss2 : MonoBehaviour
         anim.SetTrigger("attack");
         audioLibrary.PlaySound("enemy");
 
-        Collider2D[] items = Physics2D.OverlapCircleAll(attackControl.position, swordRadius);
+        /*Collider2D[] items = Physics2D.OverlapCircleAll(attackControl.position, swordRadius);
          foreach (Collider2D collision in items)
          {
              if (collision.CompareTag("Player"))
              {
                  collision.GetComponent<Health>().GetDamage();
              }
-         }
+         }*/
     }
 
     private void LookAtPlayer()

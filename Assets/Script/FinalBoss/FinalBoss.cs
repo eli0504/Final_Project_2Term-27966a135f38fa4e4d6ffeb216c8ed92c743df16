@@ -28,7 +28,7 @@ public class FinalBoss : MonoBehaviour
        
         animator = GetComponent<Animator>();
         rb2D = GetComponent<Rigidbody2D>();
-        healthBar.InitializeHealthBar(health);
+ 
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
     }
 
@@ -41,7 +41,7 @@ public class FinalBoss : MonoBehaviour
     public void TakeHit(float damage)
     {
         health -= damage;
-        healthBar.ChangeActualHealth(health);
+       
 
         if(health <= 0)
         {
