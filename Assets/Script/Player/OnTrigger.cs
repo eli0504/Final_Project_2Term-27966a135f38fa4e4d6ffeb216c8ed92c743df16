@@ -14,20 +14,20 @@ public class OnTrigger : MonoBehaviour
     public TextMeshProUGUI coinsCounterText;
     public TextMeshProUGUI keysCounterText;
 
-    public GameObject winPanel;
+    
     public GameObject player;
     public GameObject bigPotion;
     public GameObject smallPotion;
     public GameObject heart;
     public GameObject goldKey;
+    public GameObject teleport;
 
     public Volume volume;
     private Vignette vignette;
 
     public ParticleSystem boxParticles;
     public ParticleSystem boxParticles2;
-    public ParticleSystem winParticles;
-    public ParticleSystem winParticles2;
+ 
 
     public float speed = 25f;
     public float stairsSpeed = 5f;
@@ -48,8 +48,6 @@ public class OnTrigger : MonoBehaviour
         vignette.color.value = Color.red;
         
         healthScript = GetComponent<Health>();
-
-        winPanel.SetActive(false);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -71,17 +69,8 @@ public class OnTrigger : MonoBehaviour
             keysCounter++;
             keysCounterText.text = $"{keysCounter}";
 
-        } else if ((other.gameObject.tag == "goldKey"))
-        {
-            Destroy(other.gameObject);
-            audioLibrary.PlaySound("live");
-            keysCounter++;
-            keysCounterText.text = $"{keysCounter}";
-            winParticles.Play();
-            winParticles2.Play();
-            StartCoroutine(waitForWinPanel());
-        }
-
+        } 
+      
         //PowerUp
         if (other.gameObject.tag == "smallPowerUp")
         {
@@ -143,10 +132,10 @@ public class OnTrigger : MonoBehaviour
             healthScript.GetDamage();
         }
 
-        //finalLevel
-        if (other.CompareTag("finishLevel"))
+        //teleport
+        if (other.CompareTag("teleport"))
         {
-            Instantiate(goldKey, new Vector3(152.55f, 10f, 0), Quaternion.identity);
+            transform.position = new Vector3(-31.75f, 0.1f, 0f);
         }
 
         //every time the player jumps into the void he will lose a life
@@ -168,11 +157,5 @@ public class OnTrigger : MonoBehaviour
         vignette.active = false;
     }
 
-    IEnumerator waitForWinPanel()
-    {
-        yield return new WaitForSeconds(5);
-
-        winPanel.SetActive(true);
-    }
 }
        
