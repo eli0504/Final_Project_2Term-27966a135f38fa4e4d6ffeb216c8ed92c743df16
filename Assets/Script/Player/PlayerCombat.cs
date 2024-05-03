@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.Rendering.VolumeComponent;
 
 public class PlayerCombat : MonoBehaviour
 {
+    private BossHealth bossHealth;
     private EnemyHealth enemyHealth;
     public Animator anim;
 
@@ -12,12 +14,12 @@ public class PlayerCombat : MonoBehaviour
     public LayerMask enemyLayers;
 
     public float attackRange = 0.5f;
-    public int attackDamage = 40;
 
     [SerializeField]  private float damage;
     private void Start()
     {
         enemyHealth = GetComponent<EnemyHealth>();
+        bossHealth = GetComponent<BossHealth>();
     }
 
     private void Awake()
@@ -39,28 +41,48 @@ public class PlayerCombat : MonoBehaviour
         audioLibrary.PlaySound("attack");
 
         //detect enemies in range of attack with a circle
-        Collider2D[] hitEnemies =  Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
+        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
 
         //Damage enemies
-        foreach(Collider2D enemy in hitEnemies)
+        foreach (Collider2D enemy in hitEnemies)
         {
-            enemy.GetComponent<EnemyHealth>().TakeDamage();
+            // Intenta obtener el componente EnemyHealth del enemigo
+            EnemyHealth enemyHealth = enemy.GetComponent<EnemyHealth>();
+            if (enemyHealth != null)
+            {
+                enemyHealth.TakeDamage();
+            }
+            // Intenta obtener el componente BossHealth del enemigo
+            BossHealth bossHealth = enemy.GetComponent<BossHealth>();
+            if (bossHealth != null)
+            {
+                // Si el componente BossHealth existe, aplica el daño de jefe
+                bossHealth.BossDamage();
+            }
         }
+
+        // Después del bucle, verifica si hay una referencia al componente EnemyHealth
         if (enemyHealth != null)
         {
+            // Si la referencia es válida, aplica el daño al enemigo
             enemyHealth.TakeDamage();
         }
-    }
 
+        // También verifica si hay una referencia al componente BossHealth
+        if (bossHealth != null)
+        {
+            // Si la referencia es válida, aplica el daño de jefe
+            bossHealth.BossDamage();
+        }
+    }
     //visual
     private void OnDrawGizmos()
     {
-        if(attackPoint == null)
+        if (attackPoint == null)
         {
             return;
         }
 
         Gizmos.DrawWireSphere(attackPoint.position, attackRange);
     }
-
 }

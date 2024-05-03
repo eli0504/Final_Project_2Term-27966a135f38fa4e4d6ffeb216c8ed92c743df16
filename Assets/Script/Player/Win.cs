@@ -5,7 +5,7 @@ using UnityEngine.UIElements;
 
 public class Win : MonoBehaviour
 {
-    public EnemyHealth enemyHealth;
+ //   public EnemyHealth enemyHealth;
 
     public GameObject goldKey;
 
@@ -16,17 +16,14 @@ public class Win : MonoBehaviour
 
     private void Start()
     {
-        enemyHealth = GetComponent<EnemyHealth>();
+       // enemyHealth = GetComponent<EnemyHealth>();
 
         winPanel.SetActive(false);
     }
 
-    private void PlayerWin()
+    public void PlayerWin()
     {
-        if (enemyHealth.currentHealth == 0)
-        {
-            Instantiate(goldKey, new Vector3(-1f, 2f, 0), Quaternion.identity);
-        }
+        Instantiate(goldKey, new Vector3(-1f, 2f, 0), Quaternion.identity);
     }
 
     private void OnTriggerEnter2D(Collider2D other)

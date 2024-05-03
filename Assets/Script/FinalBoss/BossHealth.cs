@@ -1,25 +1,32 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class EnemyHealth : MonoBehaviour
+public class BossHealth : MonoBehaviour
 {
     public Animator anim;
 
-    public int maxHealth = 100;
+    public HealthBar healthBar;
+
+    public int maxHealth = 300;
     public int currentHealth;
 
-    public int damageValue = 35; //damage from the player
+    public int damageValue = 20; //damage from the player
+
+    public GameObject boss;
+
+    private Win win;
 
     private void Start()
     {
         anim = GetComponent<Animator>();
+        win = GetComponent<Win>();
 
         currentHealth = maxHealth;
+        healthBar.SetMaxHealth(maxHealth);
     }
 
-    public void TakeDamage()
+    public void BossDamage()
     {
         // Reduce enemy health when taking damage
         currentHealth -= damageValue;
@@ -30,7 +37,10 @@ public class EnemyHealth : MonoBehaviour
         if (currentHealth <= 0)
         {
             Invoke("Died", 2f);
+            win.PlayerWin();
         }
+
+        healthBar.SetHealth(currentHealth);
     }
 
     private void Died()
