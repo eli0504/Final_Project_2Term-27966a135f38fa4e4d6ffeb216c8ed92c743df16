@@ -28421,7 +28421,7 @@ Transform:
   m_GameObject: {fileID: 986520101}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.679, y: 0, z: 0}
+  m_LocalPosition: {x: 0.679, y: -0.03, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -28760,6 +28760,10 @@ PrefabInstance:
     - target: {fileID: 6981954663249773321, guid: 84058c4345d622d42975ef6ac3a27823, type: 3}
       propertyPath: enemyLayers.m_Bits
       value: 4352
+      objectReference: {fileID: 0}
+    - target: {fileID: 6981954663249773321, guid: 84058c4345d622d42975ef6ac3a27823, type: 3}
+      propertyPath: timeBetweenAttacks
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 7190627795542064649, guid: 84058c4345d622d42975ef6ac3a27823, type: 3}
       propertyPath: m_Name
@@ -41402,6 +41406,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 886396425733538118, guid: 06e875f18ebc01f4c976eb464ab96045, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1890370714}
+    - targetCorrespondingSourceObject: {fileID: 886396425733538118, guid: 06e875f18ebc01f4c976eb464ab96045, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1890370715}
   m_SourcePrefab: {fileID: 100100000, guid: 06e875f18ebc01f4c976eb464ab96045, type: 3}
 --- !u!1 &1890370696 stripped
 GameObject:
@@ -41439,9 +41446,6 @@ MonoBehaviour:
   speed: 2
   chaseRadius: 14.7
   attackRadius: 8.68
-  attackControl: {fileID: 986520102}
-  swordRadius: 4.27
-  attackDamage: 20
   minY: 0.33
   maxY: 0.34
   maxX: 10.02
@@ -41474,6 +41478,21 @@ MonoBehaviour:
   currentHealth: 300
   damageValue: 20
   goldKey: {fileID: 1069163220722581101, guid: 8ab572a3eb23f5e42bfc1986cfd81284, type: 3}
+--- !u!114 &1890370715
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1890370696}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75384bec44c536847a8f1be1dbdb3a99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackControl: {fileID: 986520102}
+  swordRadius: 3.94
+  attackDamage: 50
 --- !u!1 &1912924479
 GameObject:
   m_ObjectHideFlags: 0

@@ -15,6 +15,10 @@ public class PlayerCombat : MonoBehaviour
 
     public float attackRange = 0.5f;
 
+    //time between attacks
+    [SerializeField] private float timeBetweenAttacks;
+    [SerializeField] private float timeNextAttack;
+
     [SerializeField]  private float damage;
     private void Start()
     {
@@ -29,9 +33,15 @@ public class PlayerCombat : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && timeNextAttack <= 0)
         {
             Attack();
+            timeNextAttack = timeBetweenAttacks;
+        }
+
+        if(timeNextAttack > 0)
+        {
+            timeNextAttack -= Time.deltaTime;
         }
     }
 
