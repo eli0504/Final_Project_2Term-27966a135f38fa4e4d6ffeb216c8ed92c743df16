@@ -13,9 +13,9 @@ public class BossHealth : MonoBehaviour
 
     public int damageValue = 20; //damage from the player
 
-    public GameObject boss;
-
     private Win win;
+
+    public GameObject goldKey;
 
     private void Start()
     {
@@ -37,7 +37,6 @@ public class BossHealth : MonoBehaviour
         if (currentHealth <= 0)
         {
             Invoke("Died", 2f);
-            win.PlayerWin();
         }
 
         healthBar.SetHealth(currentHealth);
@@ -47,5 +46,6 @@ public class BossHealth : MonoBehaviour
     {
         anim.SetBool("isDead", true);
         Destroy(gameObject);
+        Instantiate(goldKey, new Vector3(-1f, 2f, 0), Quaternion.identity);
     }
 }
