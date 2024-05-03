@@ -33,7 +33,8 @@ public class EnemyHealth : MonoBehaviour
 
         if (currentHealth <= 0)
         {
-            Died();
+            Invoke("Died", 2f);
+          //  Died();
             anim.SetBool("isDead", true);
         }
 
