@@ -120,7 +120,7 @@ public class Finalboss : MonoBehaviour
         audioLibrary.PlaySound("enemy");
     }
 
-    private void LookAtPlayer()
+    public void LookAtPlayer()
     {
         Vector2 directionToPlayer = player.position - transform.position;
 
