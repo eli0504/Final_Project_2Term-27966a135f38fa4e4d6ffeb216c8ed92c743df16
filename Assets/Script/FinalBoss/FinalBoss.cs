@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Finalboss : MonoBehaviour
 {
+    private Health health;
+
     private Animator anim;
 
     public Transform pointA;
@@ -14,11 +16,8 @@ public class Finalboss : MonoBehaviour
     public float speed = 2;
     public float chaseRadius = 5f;
     public float attackRadius = 2f;
-    /*[SerializeField] private Transform attackControl;
-    [SerializeField] private float swordRadius;
-    */
-    private Health healthScript;
 
+    
     //clamp
     public float minY;
     public float maxY;
@@ -32,8 +31,7 @@ public class Finalboss : MonoBehaviour
     private void Start()
     {
         anim = GetComponent<Animator>();
-        healthScript = GetComponent<Health>();
-
+        health = GetComponent<Health>();
         Invoke("SetCurrentPoint", 1f);
     }
 
@@ -74,7 +72,7 @@ public class Finalboss : MonoBehaviour
         else
         {
 
-            Attack();
+             Attack();
 
         }
         transform.position = Vector3.MoveTowards(transform.position, currentPoint.position, speed * Time.deltaTime);
@@ -148,10 +146,6 @@ public class Finalboss : MonoBehaviour
         //atttack
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, attackRadius);
-
-       /* //sword
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(attackControl.position, swordRadius);*/
     }
 
 }
