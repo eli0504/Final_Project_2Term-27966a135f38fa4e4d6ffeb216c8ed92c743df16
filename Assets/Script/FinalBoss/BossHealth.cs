@@ -8,10 +8,10 @@ public class BossHealth : MonoBehaviour
 
     public HealthBar healthBar;
 
-    public int maxHealth = 300;
-    public int currentHealth;
+    private int maxHealth = 200;
+    private int currentHealth;
 
-    public int damageValue = 20; //damage from the player
+    private int damageValue = 20; //damage from the player
 
     private Win win;
 
