@@ -16,8 +16,8 @@ public class PlayerCombat : MonoBehaviour
     public float attackRange = 0.5f;
 
     //time between attacks
-    [SerializeField] private float timeBetweenAttacks;
-    [SerializeField] private float timeNextAttack;
+    private float timeBetweenAttacks = 1;
+    private float timeNextAttack;
 
     [SerializeField]  private float damage;
     private void Start()

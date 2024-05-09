@@ -12,15 +12,19 @@ public class OnTrigger : MonoBehaviour
     private Health healthScript;
 
     public TextMeshProUGUI coinsCounterText;
-    public TextMeshProUGUI keysCounterText;
 
-    
     public GameObject player;
     public GameObject bigPotion;
     public GameObject smallPotion;
     public GameObject heart;
     public GameObject goldKey;
     public GameObject teleport;
+
+
+    //COINS
+    public int coinsNeeded = 27; 
+    public int coinsCollected = 0; 
+    //
 
     public Volume volume;
     private Vignette vignette;
@@ -34,7 +38,6 @@ public class OnTrigger : MonoBehaviour
     private float smallPowerUp = 0.3f;
     private float bigPowerUp = 1f;
     private int coinsCounter;
-    private int keysCounter;
    
     private void Awake()
     {
@@ -55,22 +58,14 @@ public class OnTrigger : MonoBehaviour
         //coins
         if (other.gameObject.tag == "coins")
         {
+            coinsCollected++;
+
             audioLibrary.PlaySound("coin");
             Destroy(other.gameObject); //the collectable dissapear 
             coinsCounter++;
             coinsCounterText.text = $"{coinsCounter}";
         }
 
-        //keys
-        if (other.gameObject.tag == "keys")
-        {
-            audioLibrary.PlaySound("live");
-            Destroy(other.gameObject);
-            keysCounter++;
-            keysCounterText.text = $"{keysCounter}";
-
-        } 
-      
         //PowerUp
         if (other.gameObject.tag == "smallPowerUp")
         {
@@ -86,7 +81,7 @@ public class OnTrigger : MonoBehaviour
         }
 
         //enemies and traps
-        if (other.gameObject.tag == "traps" || other.gameObject.tag == "enemy")
+        if (other.gameObject.tag == "traps")
         {
             healthScript = GetComponent<Health>();
 
@@ -144,7 +139,19 @@ public class OnTrigger : MonoBehaviour
         {
             healthScript.GetDamage();
         }
+
+        //ChangeLevel
+        if (coinsCollected >= coinsNeeded && other.CompareTag("PassLevel"))
+        {
+            // Cambiar de nivel
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
+        else
+        {
+            Debug.Log("No tienes suficientes monedas para cambiar de nivel.");
+        }
     }
+
 
     //coroutine to change color and disable vignette
     public IEnumerator Desactive() 

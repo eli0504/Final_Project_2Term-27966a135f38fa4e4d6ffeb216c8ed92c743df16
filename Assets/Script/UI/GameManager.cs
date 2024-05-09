@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    /*
     //PlayerData
     public GameObject player;
     public SaveSystem saveSystem;
@@ -51,11 +52,11 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
-    public void SaveData() //save player health for next level
+  /*  public void SaveData() //save player health for next level
     {
         if(player != null)
         {
             saveSystem.SaveData(SceneManager.GetActiveScene().buildIndex + 1, player.GetComponent<Health>().numberOfHearts);
         }
-    }
+    }*/
 }

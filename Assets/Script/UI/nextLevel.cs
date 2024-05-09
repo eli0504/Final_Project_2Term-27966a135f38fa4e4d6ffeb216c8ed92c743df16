@@ -6,19 +6,34 @@ using UnityEngine.SceneManagement;
 
 public class nextLevel : MonoBehaviour
 {
-    GameManager gameManager;
-   
-    private void Awake()
+    /*   GameManager gameManager;
+
+       private void Awake()
+       {
+           gameManager = FindObjectOfType<GameManager>();
+       }
+
+       private void OnTriggerEnter2D(Collider2D other) //Checks if the layer of the colliding object is present in the playerMask
+       {
+           if (other.gameObject.tag == "Player")
+           {
+               gameManager.SaveData();
+               gameManager.LoadNextLevel();
+           }
+       }
+
+    private OnTrigger onTrigger;
+
+    private void Start()
     {
-        gameManager = FindObjectOfType<GameManager>();
+        onTrigger = gameObject.AddComponent<OnTrigger>();
     }
 
-    private void OnTriggerEnter2D(Collider2D other) //Checks if the layer of the colliding object is present in the playerMask
+    private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.tag == "Player")
         {
-            gameManager.SaveData();
-            gameManager.LoadNextLevel();
+            onTrigger.ChangeLevel();
         }
-    }
+    }*/
 }

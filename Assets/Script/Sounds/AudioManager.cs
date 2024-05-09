@@ -7,7 +7,7 @@ using TMPro;
 public class AudioManager : MonoBehaviour
 {
     [SerializeField] private Slider volumeSlider = null;
-    public TextMeshProUGUI volumeTextUI = null;
+    private TextMeshProUGUI volumeTextUI = null;
 
     private void Start()
     {
