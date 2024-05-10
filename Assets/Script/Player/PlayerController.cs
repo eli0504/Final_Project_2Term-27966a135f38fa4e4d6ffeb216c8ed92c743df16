@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour
     public int maxJumps = 2;
     public float jumpSpeed = 10f;
 
+
     private void Awake()
     {
         anim = GetComponentInChildren<Animator>();
@@ -93,4 +94,5 @@ public class PlayerController : MonoBehaviour
             anim.SetBool("running", false);
         } 
     }
+
 }

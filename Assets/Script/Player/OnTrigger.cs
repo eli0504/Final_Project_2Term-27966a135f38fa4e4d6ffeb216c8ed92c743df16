@@ -20,6 +20,7 @@ public class OnTrigger : MonoBehaviour
     public GameObject goldKey;
     public GameObject teleport;
 
+    private Rigidbody2D rb;
 
     //COINS
     public int coinsNeeded = 27; 
@@ -149,6 +150,12 @@ public class OnTrigger : MonoBehaviour
         else
         {
             Debug.Log("No tienes suficientes monedas para cambiar de nivel.");
+        }
+
+        //bullet
+        if (other.CompareTag("bullet"))
+        {
+            healthScript.GetDamage();
         }
     }
 

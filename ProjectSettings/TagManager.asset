@@ -28,6 +28,8 @@ TagManager:
   - Edge3
   - boss
   - teleport
+  - bullet
+  - bulletAttack
   layers:
   - Default
   - TransparentFX

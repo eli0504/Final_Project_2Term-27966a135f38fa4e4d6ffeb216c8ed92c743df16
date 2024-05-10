@@ -11,6 +11,6 @@ public class bullet : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         rb.velocity = transform.right * speed;
-        Destroy(gameObject, 4f);
+        Destroy(gameObject, 20f);
     }
 }
