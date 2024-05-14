@@ -11,7 +11,7 @@ public class audioLibrary : MonoBehaviour
     {
         liveSound = Resources.Load<AudioClip>("live");
         pointSound = Resources.Load<AudioClip>("point");
-        generalSound = Resources.Load<AudioClip>("general");
+        generalSound = Resources.Load<AudioClip>("background");
         hurtSound = Resources.Load<AudioClip>("hurt");
         coinSound = Resources.Load<AudioClip>("coin");
         enemySound = Resources.Load<AudioClip>("enemy");
@@ -44,7 +44,7 @@ public class audioLibrary : MonoBehaviour
             case "gameOverSound":
                 audioSource.PlayOneShot(gameOverSound);
                 break;
-            case "general":
+            case "background":
                 audioSource.PlayOneShot(generalSound);
                 break;
             case "point":
