@@ -150,7 +150,7 @@ public class OnTrigger : MonoBehaviour
             // Cambiar de nivel
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
-        else
+        else if (other.CompareTag("PassLevel"))
         {
            ShowRememberPanel();
         }
