@@ -19,6 +19,7 @@ public class OnTrigger : MonoBehaviour
     public GameObject heart;
     public GameObject goldKey;
     public GameObject teleport;
+    public GameObject rememberPanel;
 
     private Rigidbody2D rb;
 
@@ -42,6 +43,8 @@ public class OnTrigger : MonoBehaviour
    
     private void Awake()
     {
+        QuitRememberPanel();
+
         volume = GetComponent<Volume>();
     }
     private void Start()
@@ -149,7 +152,7 @@ public class OnTrigger : MonoBehaviour
         }
         else
         {
-            Debug.Log("No tienes suficientes monedas para cambiar de nivel.");
+           ShowRememberPanel();
         }
 
         //bullet
@@ -159,6 +162,18 @@ public class OnTrigger : MonoBehaviour
         }
     }
 
+    //to remember the player to collect all the coins
+    public void ShowRememberPanel()
+    {
+
+        rememberPanel.SetActive(true);
+
+    }
+
+    public void QuitRememberPanel()
+    {
+        rememberPanel.SetActive(false);
+    }
 
     //coroutine to change color and disable vignette
     public IEnumerator Desactive() 

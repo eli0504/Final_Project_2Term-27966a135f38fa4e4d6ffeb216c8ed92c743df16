@@ -14,8 +14,10 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject pausePanel;
     [SerializeField] private GameObject settingsPanel;
     [SerializeField] private GameObject creditsPanel;
-    //buttons
-    [SerializeField] private Button settingsButton;
+    
+
+   //buttons
+   [SerializeField] private Button settingsButton;
     [SerializeField] private Button creditsButton;
     [SerializeField] private Button mainMenuButton;
     [SerializeField] private Button resumeButton;
