@@ -22,6 +22,11 @@ public class audioLibrary : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
     }
 
+    private void Awake()
+    {
+        DontDestroyOnLoad(gameObject);
+    }
+
     public static void PlaySound(string clip)
     {
         switch (clip)

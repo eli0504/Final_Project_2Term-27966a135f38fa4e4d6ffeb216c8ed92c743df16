@@ -14,10 +14,12 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject pausePanel;
     [SerializeField] private GameObject settingsPanel;
     [SerializeField] private GameObject creditsPanel;
-    
+    [SerializeField] private GameObject controlPanel;
+    [SerializeField] private GameObject musicPanel;
 
-   //buttons
-   [SerializeField] private Button settingsButton;
+
+    //buttons
+    [SerializeField] private Button settingsButton;
     [SerializeField] private Button creditsButton;
     [SerializeField] private Button mainMenuButton;
     [SerializeField] private Button resumeButton;
@@ -25,6 +27,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Button exitButton;
     [SerializeField] private Button backButton;
     [SerializeField] private Button restartButton;
+    [SerializeField] private Button controlButton;
+    [SerializeField] private Button musicButton;
 
     private void Awake()
     {
@@ -36,7 +40,9 @@ public class UIManager : MonoBehaviour
 
         Instance = this;
       
-        QuitPausePanel();
+       // QuitPausePanel();
+        QuitControlPanel();
+        QuitMusicPanel();
     }
 
     private void Start()
@@ -109,16 +115,42 @@ public class UIManager : MonoBehaviour
         creditsPanel.SetActive(false);
     }
 
+    //control button
+
+    public void ShowControlPanel()
+    {
+
+        controlPanel.SetActive(true);
+
+    }
+    public void QuitControlPanel()
+    {
+        controlPanel.SetActive(false);
+    }
+
+    //music button
+
+    public void ShowMusicPanel()
+    {
+
+        musicPanel.SetActive(true);
+
+    }
+    public void QuitMusicPanel()
+    {
+        musicPanel.SetActive(false);
+    }
+
     //SCENES
 
     public void GotoMainMenuScene()
     {
         SceneManager.LoadScene("MainMenu");
     }
-    public void GotoPlayerPrefScene()
+   /* public void GotoPlayerPrefScene()
     {
         SceneManager.LoadScene("PlayerPref");
-    }
+    }*/
 
     public void GotoLevelOneScene()
     {
