@@ -28,6 +28,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Button backButton;
     [SerializeField] private Button controlButton;
     [SerializeField] private Button musicButton;
+    [SerializeField] private Button restartButton;
 
     private void Awake()
     {
