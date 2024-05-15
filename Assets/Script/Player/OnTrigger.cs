@@ -85,7 +85,7 @@ public class OnTrigger : MonoBehaviour
         }
 
         //enemies and traps
-        if (other.gameObject.tag == "traps")
+        if (other.gameObject.tag == "traps" || other.gameObject.tag == "enemy")
         {
             healthScript = GetComponent<Health>();
 
