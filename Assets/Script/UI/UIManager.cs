@@ -26,7 +26,6 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Button playButton;
     [SerializeField] private Button exitButton;
     [SerializeField] private Button backButton;
-    [SerializeField] private Button restartButton;
     [SerializeField] private Button controlButton;
     [SerializeField] private Button musicButton;
 
