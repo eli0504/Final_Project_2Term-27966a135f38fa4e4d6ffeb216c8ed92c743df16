@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
+    private GameOver gameOver;
+
     public static UIManager Instance { get; private set; }
 
     private bool isPaused;
@@ -48,6 +50,8 @@ public class UIManager : MonoBehaviour
     private void Start()
     {
         isPaused = false;
+
+        gameOver = GetComponent<GameOver>();
     }
 
     private void Update()
@@ -166,6 +170,7 @@ public class UIManager : MonoBehaviour
     public void ResetGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+       // gameOver.gameOverPanel.SetActive(false);
         Time.timeScale = 1f;
         Health.lives = 3;
     }
