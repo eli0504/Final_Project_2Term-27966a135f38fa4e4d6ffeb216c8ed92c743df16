@@ -16,6 +16,8 @@ public class PlayerController : MonoBehaviour
     private float horizontalInput;
     private float moveSpeed = 10f;
 
+    bool lookAtRight = true;
+
     //JUMP CONDITIONS
     public int jumpsMade = 0;
     public int maxJumps = 2;
@@ -47,8 +49,6 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        RunAnim();
-
         //JUMP
         horizontalInput = Input.GetAxis("Horizontal");
 
@@ -71,9 +71,20 @@ public class PlayerController : MonoBehaviour
     {
         if (canMove)
         {
+            anim.SetBool("running", true);
             rigidbody2D.velocity = new Vector2(moveSpeed * horizontalInput, rigidbody2D.velocity.y);
         }
-      
+
+        horizontalInput = Input.GetAxis("Horizontal");
+
+        if (horizontalInput > 0f && !lookAtRight) // right direction
+        {
+            Flip(); // face right 
+        }
+        else if (horizontalInput < 0f && lookAtRight) // left direction
+        {
+            Flip(); // face left
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -110,19 +121,6 @@ public class PlayerController : MonoBehaviour
 
     public IEnumerator Dash()
     {
-        /* canMove = false;
-         canDash = false;
-         rigidbody2D.gravityScale = 0;
-         rigidbody2D.velocity = new Vector2(dashVelocity * transform.localScale.x ,0);
-         trailRenderer.emitting = true;
-
-         yield return new WaitForSeconds(dashTime);
-
-         canMove = true;
-         canDash = true;
-         rigidbody2D.gravityScale = initialGravity;
-         trailRenderer.emitting = false;*/
-
         canMove = false;
         rigidbody2D.gravityScale = 0;
 
@@ -138,36 +136,12 @@ public class PlayerController : MonoBehaviour
         trailRenderer.emitting = false;
     }
 
-    private void RunAnim()
+    private void Flip()
     {
-        /*  if (horizontalInput > 0f) //right direction
-          {
-              anim.SetBool("running", true);
-              transform.rotation = Quaternion.identity;
-          }
-          else if (horizontalInput < 0f) //left direction
-          {
-              anim.SetBool("running", true);
-              transform.rotation = Quaternion.Euler(0, 180, 0);
-          }
-          else
-          {
-              anim.SetBool("running", false);
-          } */
-        if (horizontalInput > 0f) // right direction
-        {
-            anim.SetBool("running", true);
-            transform.localScale = new Vector3(1, 1, 1); // face right
-        }
-        else if (horizontalInput < 0f) // left direction
-        {
-            anim.SetBool("running", true);
-            transform.localScale = new Vector3(-1, 1, 1); // face left
-        }
-        else
-        {
-            anim.SetBool("running", false);
-        }
-    }
+        Vector3 currentScale = gameObject.transform.localScale;
+        currentScale.x *= -1;
+        gameObject.transform.localScale = currentScale;
 
+        lookAtRight = !lookAtRight;
+    }
 }

@@ -10,6 +10,7 @@ using UnityEngine.Rendering.Universal;
 public class OnTrigger : MonoBehaviour
 {
     private Health healthScript;
+    public LevelPlayerpref levelPlayerpref;
 
     public TextMeshProUGUI coinsCounterText;
 
@@ -57,10 +58,25 @@ public class OnTrigger : MonoBehaviour
         vignette.color.value = Color.red;
         
         healthScript = GetComponent<Health>();
+        //levelPlayerpref = GetComponent<LevelPlayerpref>();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        //going to secret level
+        if (other.gameObject.tag == "crystal")
+        {
+            if (levelPlayerpref != null)
+            {
+                levelPlayerpref.EnterHiddenLevel(); // Llama al método EnterHiddenLevel() del LevelManager
+            }
+            else if (other.CompareTag("ExitHiddenLevel"))
+            {
+                levelPlayerpref.ExitHiddenLevel();
+            }
+        }
+
+
         //coins
         if (other.gameObject.tag == "coins")
         {
@@ -165,8 +181,8 @@ public class OnTrigger : MonoBehaviour
            ShowRememberPanel();
         }
 
-        //bullet
-        if (other.CompareTag("bullet"))
+            //bullet
+            if (other.CompareTag("bullet"))
         {
             healthScript.GetDamage();
         }
