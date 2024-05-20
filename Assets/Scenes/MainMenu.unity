@@ -2729,9 +2729,9 @@ MonoBehaviour:
   playButton: {fileID: 1390685633}
   exitButton: {fileID: 0}
   backButton: {fileID: 1237879104182520246, guid: 8577ab7dadf01ba4f8a1b003de168088, type: 3}
-  restartButton: {fileID: 0}
   controlButton: {fileID: 118514234}
   musicButton: {fileID: 0}
+  restartButton: {fileID: 0}
 --- !u!1001 &982959687
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5442,7 +5442,7 @@ PrefabInstance:
       objectReference: {fileID: 968537686}
     - target: {fileID: 7340398225741724446, guid: 7d4bac631e6840343937e8debeafb052, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: GotoLevelOneScene
+      value: GotoInfoScene
       objectReference: {fileID: 0}
     - target: {fileID: 7340398225741724446, guid: 7d4bac631e6840343937e8debeafb052, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -5483,5 +5483,5 @@ SceneRoots:
   m_Roots:
   - {fileID: 1833335807}
   - {fileID: 968537684}
-  - {fileID: 1934378111}
   - {fileID: 412670921}
+  - {fileID: 1934378111}

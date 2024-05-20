@@ -21,6 +21,14 @@ public class PlayerController : MonoBehaviour
     public int maxJumps = 2;
     public float jumpSpeed = 10f;
 
+    //dash ability
+    [SerializeField] private float dashVelocity;
+    [SerializeField] private float dashTime;
+    [SerializeField] private TrailRenderer trailRenderer;
+    private float initialGravity;
+    private bool canDash = false; // Start as false, only true after picking up ability
+    private bool canMove = true;
+
 
     private void Awake()
     {
@@ -32,25 +40,49 @@ public class PlayerController : MonoBehaviour
         boxCollider2D = GetComponentInChildren<BoxCollider2D>();
     }
 
-    private void Update()
+    private void Start()
     {
-       RunAnim();
-
-       //JUMP
-       horizontalInput = Input.GetAxis("Horizontal");
-
-       if (Input.GetKeyDown(KeyCode.Space) && (IsOnTheGround() || jumpsMade < maxJumps))
-       {
-        rigidbody2D.velocity = Vector2.up * jumpSpeed;
-        anim.SetTrigger("jump");
-        audioLibrary.PlaySound("jump");
-        jumpsMade++;
-       }
+        initialGravity = rigidbody2D.gravityScale;
     }
 
+    private void Update()
+    {
+        RunAnim();
+
+        //JUMP
+        horizontalInput = Input.GetAxis("Horizontal");
+
+        if (Input.GetKeyDown(KeyCode.Space) && (IsOnTheGround() || jumpsMade < maxJumps))
+        {
+            rigidbody2D.velocity = Vector2.up * jumpSpeed;
+            anim.SetTrigger("jump");
+            audioLibrary.PlaySound("jump");
+            jumpsMade++;
+        }
+
+        //DASH
+        if( Input.GetKeyDown(KeyCode.LeftShift) && canDash)
+        {
+            StartCoroutine(Dash());
+        }
+    }
+        
     private void FixedUpdate()
     {
-        rigidbody2D.velocity = new Vector2(moveSpeed * horizontalInput, rigidbody2D.velocity.y);
+        if (canMove)
+        {
+            rigidbody2D.velocity = new Vector2(moveSpeed * horizontalInput, rigidbody2D.velocity.y);
+        }
+      
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("ability"))
+        {
+            canDash = true;
+            Destroy(other.gameObject); 
+        }
     }
 
     private bool IsOnTheGround()
@@ -76,23 +108,66 @@ public class PlayerController : MonoBehaviour
         return isOnTheGround;
     }
 
+    public IEnumerator Dash()
+    {
+        /* canMove = false;
+         canDash = false;
+         rigidbody2D.gravityScale = 0;
+         rigidbody2D.velocity = new Vector2(dashVelocity * transform.localScale.x ,0);
+         trailRenderer.emitting = true;
+
+         yield return new WaitForSeconds(dashTime);
+
+         canMove = true;
+         canDash = true;
+         rigidbody2D.gravityScale = initialGravity;
+         trailRenderer.emitting = false;*/
+
+        canMove = false;
+        rigidbody2D.gravityScale = 0;
+
+        // Determine dash direction based on player's input direction
+        float dashDirection = horizontalInput != 0 ? horizontalInput : (transform.localScale.x > 0 ? 1 : -1);
+        rigidbody2D.velocity = new Vector2(dashVelocity * dashDirection, 0);
+        trailRenderer.emitting = true;
+
+        yield return new WaitForSeconds(dashTime);
+
+        canMove = true;
+        rigidbody2D.gravityScale = initialGravity;
+        trailRenderer.emitting = false;
+    }
 
     private void RunAnim()
     {
-        if (horizontalInput > 0f) //right direction
+        /*  if (horizontalInput > 0f) //right direction
+          {
+              anim.SetBool("running", true);
+              transform.rotation = Quaternion.identity;
+          }
+          else if (horizontalInput < 0f) //left direction
+          {
+              anim.SetBool("running", true);
+              transform.rotation = Quaternion.Euler(0, 180, 0);
+          }
+          else
+          {
+              anim.SetBool("running", false);
+          } */
+        if (horizontalInput > 0f) // right direction
         {
             anim.SetBool("running", true);
-            transform.rotation = Quaternion.identity;
+            transform.localScale = new Vector3(1, 1, 1); // face right
         }
-        else if (horizontalInput < 0f) //left direction
+        else if (horizontalInput < 0f) // left direction
         {
             anim.SetBool("running", true);
-            transform.rotation = Quaternion.Euler(0, 180, 0);
+            transform.localScale = new Vector3(-1, 1, 1); // face left
         }
         else
         {
             anim.SetBool("running", false);
-        } 
+        }
     }
 
 }

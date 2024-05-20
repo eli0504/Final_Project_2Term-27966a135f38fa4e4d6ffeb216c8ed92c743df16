@@ -151,10 +151,15 @@ public class UIManager : MonoBehaviour
     {
         SceneManager.LoadScene("MainMenu");
     }
-   /* public void GotoPlayerPrefScene()
+    /* public void GotoPlayerPrefScene()
+     {
+         SceneManager.LoadScene("PlayerPref");
+     }*/
+
+    public void GotoInfoScene()
     {
-        SceneManager.LoadScene("PlayerPref");
-    }*/
+        SceneManager.LoadScene("Info");
+    }
 
     public void GotoLevelOneScene()
     {
@@ -166,6 +171,7 @@ public class UIManager : MonoBehaviour
 
         SceneManager.LoadScene("Level2");
     }
+
 
     public void ResetGame()
     {

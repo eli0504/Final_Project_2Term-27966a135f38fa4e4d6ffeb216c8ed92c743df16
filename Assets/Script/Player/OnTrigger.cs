@@ -20,6 +20,7 @@ public class OnTrigger : MonoBehaviour
     public GameObject goldKey;
     public GameObject teleport;
     public GameObject rememberPanel;
+    public GameObject dashPowerUp;
 
     private Rigidbody2D rb;
 
@@ -33,7 +34,8 @@ public class OnTrigger : MonoBehaviour
 
     public ParticleSystem boxParticles;
     public ParticleSystem boxParticles2;
- 
+    public ParticleSystem dashParticles;
+
 
     public float speed = 25f;
     public float stairsSpeed = 5f;
@@ -110,6 +112,14 @@ public class OnTrigger : MonoBehaviour
             boxParticles2.Stop();
         }
 
+        //dash chest
+        if (other.CompareTag("dash"))
+        {
+            Instantiate(dashPowerUp, new Vector3(1.5f, -2, 0), Quaternion.identity);
+            dashParticles.Stop();
+            Destroy(other.gameObject);
+        }
+      
         //live
         if (other.CompareTag("live"))
         {

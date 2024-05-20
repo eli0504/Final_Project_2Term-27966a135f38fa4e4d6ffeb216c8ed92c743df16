@@ -30,6 +30,8 @@ TagManager:
   - teleport
   - bullet
   - bulletAttack
+  - dash
+  - ability
   layers:
   - Default
   - TransparentFX
@@ -81,6 +83,12 @@ TagManager:
     locked: 0
   - name: ground2
     uniqueID: 3058458761
+    locked: 0
+  - name: items
+    uniqueID: 410916065
+    locked: 0
+  - name: wall
+    uniqueID: 2921782031
     locked: 0
   - name: Ground
     uniqueID: 2107732017
