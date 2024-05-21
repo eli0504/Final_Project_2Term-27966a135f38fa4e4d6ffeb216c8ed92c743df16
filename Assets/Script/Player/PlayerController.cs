@@ -24,11 +24,12 @@ public class PlayerController : MonoBehaviour
     public float jumpSpeed = 10f;
 
     //dash ability
-    [SerializeField] private float dashVelocity;
-    [SerializeField] private float dashTime;
+    private float dashVelocity = 30;
+    private float dashTime = 0.4f;
     [SerializeField] private TrailRenderer trailRenderer;
     private float initialGravity;
-    private bool canDash = false; // Start as false, only true after picking up ability
+    // private bool canDash = false; // Start as false, only true after picking up ability
+    private static bool canDash = false;
     private bool canMove = true;
 
 

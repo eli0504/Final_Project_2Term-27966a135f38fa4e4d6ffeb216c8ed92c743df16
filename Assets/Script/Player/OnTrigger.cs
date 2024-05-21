@@ -175,7 +175,6 @@ public class OnTrigger : MonoBehaviour
         //ChangeLevel
         if (coinsCollected >= coinsNeeded && other.CompareTag("PassLevel"))
         {
-            // Cambiar de nivel
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
         else if (other.CompareTag("PassLevel"))
