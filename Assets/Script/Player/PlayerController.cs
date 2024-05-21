@@ -72,7 +72,6 @@ public class PlayerController : MonoBehaviour
         if( Input.GetKeyDown(KeyCode.LeftShift) && canDash)
         {
             StartCoroutine(Dash());
-            shiftImageBlocked.sprite = shiftImageUnlocked;
         }
     }
         
@@ -104,6 +103,10 @@ public class PlayerController : MonoBehaviour
             canDash = true;
             Destroy(other.gameObject);
             StartCoroutine(QuitRememberPanel());
+        }
+        if(canDash)
+        {
+            shiftImageBlocked.sprite = shiftImageUnlocked;
         }
     }
 

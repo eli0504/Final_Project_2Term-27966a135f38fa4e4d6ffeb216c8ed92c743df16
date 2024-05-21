@@ -57713,6 +57713,17 @@ MonoBehaviour:
   blendDistance: 0
   weight: 0.455
   sharedProfile: {fileID: 11400000, guid: 6d44112b522a45d4bbc17bbe82883ee8, type: 2}
+--- !u!114 &1484370345 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7186812521488772738, guid: 16169df6dcef12242b206bf0971863f1, type: 3}
+  m_PrefabInstance: {fileID: 743465112}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1499698028
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -64497,6 +64508,14 @@ PrefabInstance:
       propertyPath: trailRenderer
       value: 
       objectReference: {fileID: 1390450368}
+    - target: {fileID: 7008557588276518352, guid: 84058c4345d622d42975ef6ac3a27823, type: 3}
+      propertyPath: shiftImageBlocked
+      value: 
+      objectReference: {fileID: 1484370345}
+    - target: {fileID: 7008557588276518352, guid: 84058c4345d622d42975ef6ac3a27823, type: 3}
+      propertyPath: shiftImageUnlocked
+      value: 
+      objectReference: {fileID: 21300000, guid: 81206ce60d7fae448a9db0874307e747, type: 3}
     - target: {fileID: 7190627795542064649, guid: 84058c4345d622d42975ef6ac3a27823, type: 3}
       propertyPath: m_Name
       value: PlayerEmpty
