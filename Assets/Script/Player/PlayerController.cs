@@ -29,7 +29,7 @@ public class PlayerController : MonoBehaviour
     public GameObject skillPanel;
 
     private float dashVelocity = 30;
-    private float dashTime = 0.4f;
+    private float dashTime = 0.2f;
     private float initialGravity;
     [SerializeField] private TrailRenderer trailRenderer;
 
@@ -77,13 +77,13 @@ public class PlayerController : MonoBehaviour
         
     private void FixedUpdate()
     {
+        horizontalInput = Input.GetAxis("Horizontal");
+
         if (canMove)
         {
             anim.SetBool("running", true);
             rigidbody2D.velocity = new Vector2(moveSpeed * horizontalInput, rigidbody2D.velocity.y);
         }
-
-        horizontalInput = Input.GetAxis("Horizontal");
 
         if (horizontalInput > 0f && !lookAtRight) // right direction
         {
