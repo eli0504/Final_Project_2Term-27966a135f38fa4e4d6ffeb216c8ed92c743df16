@@ -68,17 +68,19 @@ public class OnTrigger : MonoBehaviour
         {
             if (levelPlayerpref != null)
             {
-                levelPlayerpref.EnterHiddenLevel(); // Llama al método EnterHiddenLevel() del LevelManager
+                levelPlayerpref.EnterHiddenLevel(); 
             }
-            else if (other.CompareTag("ExitHiddenLevel"))
+        }
+        if (other.gameObject.tag == "ExitHiddenLevel")
+        {
+            if (levelPlayerpref != null)
             {
                 levelPlayerpref.ExitHiddenLevel();
             }
         }
 
-
-        //coins
-        if (other.gameObject.tag == "coins")
+            //coins
+            if (other.gameObject.tag == "coins")
         {
             coinsCollected++;
 
@@ -131,7 +133,7 @@ public class OnTrigger : MonoBehaviour
         //dash chest
         if (other.CompareTag("dash"))
         {
-            Instantiate(dashPowerUp, new Vector3(1.5f, -2, 0), Quaternion.identity);
+            Instantiate(dashPowerUp, new Vector3(1.7f, 0.19f, 0), Quaternion.identity);
             dashParticles.Stop();
             Destroy(other.gameObject);
         }

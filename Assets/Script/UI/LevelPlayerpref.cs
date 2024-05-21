@@ -5,32 +5,41 @@ using UnityEngine.SceneManagement;
 
 public class LevelPlayerpref : MonoBehaviour
 {
-    public string previousScene;
-    public Vector3 returnPosition;
+    public string previousScene = "Level2";
+    public Vector3 returnPosition = new Vector3(16.80f, 5.55f, 0);
 
     public void EnterHiddenLevel()
     {
-        // Guardar la escena actual y la posición del jugador antes de entrar al nivel oculto
+        // Save the current scene and the player's position before entering the hidden level
         previousScene = SceneManager.GetActiveScene().name;
         returnPosition = GameObject.FindGameObjectWithTag("Player").transform.position;
 
-        // Cargar el nivel oculto
+        if (string.IsNullOrEmpty(previousScene))
+        {
+            Debug.LogError("Previous scene name is empty or null.");
+            return;
+        }
+
         SceneManager.LoadScene("secretroom");
     }
 
     public void ExitHiddenLevel()
     {
-        // Cargar la escena anterior
-        SceneManager.LoadScene(previousScene);
+        if (!string.IsNullOrEmpty(previousScene))
+        {
+            SceneManager.LoadScene(previousScene);
+        }
     }
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         if (scene.name == previousScene)
         {
-            // Colocar al jugador en la posición guardada
             GameObject player = GameObject.FindGameObjectWithTag("Player");
-            player.transform.position = returnPosition;
+            if (player != null)
+            {
+                player.transform.position = returnPosition;
+            }
         }
     }
 
