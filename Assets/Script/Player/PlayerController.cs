@@ -24,10 +24,15 @@ public class PlayerController : MonoBehaviour
     public float jumpSpeed = 10f;
 
     //dash ability
+    public Image shiftImageBlocked;
+    public Sprite shiftImageUnlocked;
+    public GameObject skillPanel;
+
     private float dashVelocity = 30;
     private float dashTime = 0.4f;
-    [SerializeField] private TrailRenderer trailRenderer;
     private float initialGravity;
+    [SerializeField] private TrailRenderer trailRenderer;
+
     // private bool canDash = false; // Start as false, only true after picking up ability
     private static bool canDash = false;
     private bool canMove = true;
@@ -41,6 +46,8 @@ public class PlayerController : MonoBehaviour
         rigidbody2D.constraints = RigidbodyConstraints2D.FreezeRotation;
 
         boxCollider2D = GetComponentInChildren<BoxCollider2D>();
+
+        QuitRememberPanel();
     }
 
     private void Start()
@@ -65,6 +72,7 @@ public class PlayerController : MonoBehaviour
         if( Input.GetKeyDown(KeyCode.LeftShift) && canDash)
         {
             StartCoroutine(Dash());
+            shiftImageBlocked.sprite = shiftImageUnlocked;
         }
     }
         
@@ -92,8 +100,10 @@ public class PlayerController : MonoBehaviour
     {
         if (other.CompareTag("ability"))
         {
+            ShowRememberPanel();
             canDash = true;
-            Destroy(other.gameObject); 
+            Destroy(other.gameObject);
+            StartCoroutine(QuitRememberPanel());
         }
     }
 
@@ -144,5 +154,18 @@ public class PlayerController : MonoBehaviour
         gameObject.transform.localScale = currentScale;
 
         lookAtRight = !lookAtRight;
+    }
+
+    public void ShowRememberPanel()
+    {
+
+        skillPanel.SetActive(true);
+
+    }
+
+    private IEnumerator QuitRememberPanel()
+    {
+        yield return new WaitForSeconds(3);
+        skillPanel.SetActive(false);
     }
 }
