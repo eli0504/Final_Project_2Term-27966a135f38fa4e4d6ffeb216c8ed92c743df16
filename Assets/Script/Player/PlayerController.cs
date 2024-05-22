@@ -73,6 +73,16 @@ public class PlayerController : MonoBehaviour
         {
             StartCoroutine(Dash());
         }
+
+        // animation states
+        if (horizontalInput != 0)
+        {
+            anim.SetBool("running", true);
+        }
+        else
+        {
+            anim.SetBool("running", false);
+        }
     }
         
     private void FixedUpdate()
@@ -81,7 +91,6 @@ public class PlayerController : MonoBehaviour
 
         if (canMove)
         {
-            anim.SetBool("running", true);
             rigidbody2D.velocity = new Vector2(moveSpeed * horizontalInput, rigidbody2D.velocity.y);
         }
 

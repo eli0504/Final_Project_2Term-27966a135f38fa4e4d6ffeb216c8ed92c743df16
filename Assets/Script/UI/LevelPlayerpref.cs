@@ -8,6 +8,13 @@ public class LevelPlayerpref : MonoBehaviour
     public string previousScene = "Level2";
     public Vector3 returnPosition = new Vector3(16.80f, 5.55f, 0);
 
+    private OnTrigger onTrigger;
+
+    private void Start()
+    {
+        onTrigger = GameObject.FindGameObjectWithTag("Player").GetComponent<OnTrigger>();
+    }
+
     public void EnterHiddenLevel()
     {
         // Save the current scene and the player's position before entering the hidden level
