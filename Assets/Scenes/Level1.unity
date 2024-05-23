@@ -21991,9 +21991,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1421305122}
     - target: {fileID: 403833196215560932, guid: 795e1db7ff12abf418e5030bafcdf751, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 403833196215560932, guid: 795e1db7ff12abf418e5030bafcdf751, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1421305122}
+      objectReference: {fileID: 1135625501}
+    - target: {fileID: 403833196215560932, guid: 795e1db7ff12abf418e5030bafcdf751, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LoadScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 403833196215560932, guid: 795e1db7ff12abf418e5030bafcdf751, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Loader, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 1841877917640582759, guid: 795e1db7ff12abf418e5030bafcdf751, type: 3}
       propertyPath: m_IsActive
       value: 1
