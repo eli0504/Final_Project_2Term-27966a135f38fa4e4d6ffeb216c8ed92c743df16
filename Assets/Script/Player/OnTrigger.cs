@@ -22,6 +22,7 @@ public class OnTrigger : MonoBehaviour
     public GameObject teleport;
     public GameObject rememberPanel;
     public GameObject dashPowerUp;
+    public GameObject nextLvlPanel;
 
     private Rigidbody2D rb;
 
@@ -52,6 +53,8 @@ public class OnTrigger : MonoBehaviour
     }
     private void Start()
     {
+        nextLvlPanel.SetActive(false);
+
         volume.profile.TryGet(out vignette); //find and plug the vignette
 
         vignette.intensity.value = 0.5f;
@@ -175,7 +178,8 @@ public class OnTrigger : MonoBehaviour
         //ChangeLevel
         if (coinsCollected >= coinsNeeded && other.CompareTag("PassLevel"))
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            nextLvlPanel.SetActive(true);
+            //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
         else if (other.CompareTag("PassLevel"))
         {
