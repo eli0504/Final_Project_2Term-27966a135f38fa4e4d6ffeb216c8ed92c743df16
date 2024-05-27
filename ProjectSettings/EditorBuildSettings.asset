@@ -18,12 +18,12 @@ EditorBuildSettings:
     path: Assets/Scenes/Level2.unity
     guid: 4d17b911d4149a946b04c043dd407c25
   - enabled: 1
-    path: Assets/Scenes/secretroom.unity
-    guid: 666cc1e8606b6114d941847254c031b4
-  - enabled: 1
     path: Assets/Scenes/Level3.unity
     guid: 19692cc322e71a34bb4f705c16901a94
   - enabled: 1
     path: Assets/Scenes/FinalBoss.unity
     guid: 0576e558a9b8d9e42abd982590f81fa4
+  - enabled: 1
+    path: Assets/Scenes/secretroom.unity
+    guid: 666cc1e8606b6114d941847254c031b4
   m_configObjects: {}

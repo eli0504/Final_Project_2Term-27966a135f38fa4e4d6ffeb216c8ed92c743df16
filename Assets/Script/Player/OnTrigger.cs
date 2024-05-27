@@ -6,13 +6,13 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
+using System;
 
 public class OnTrigger : MonoBehaviour
 {
+    private Loader loader;
     private Health healthScript;
     public LevelPlayerpref levelPlayerpref;
-
-    public TextMeshProUGUI coinsCounterText;
 
     public GameObject player;
     public GameObject bigPotion;
@@ -20,16 +20,18 @@ public class OnTrigger : MonoBehaviour
     public GameObject heart;
     public GameObject goldKey;
     public GameObject teleport;
-    public GameObject rememberPanel;
     public GameObject dashPowerUp;
-    public GameObject nextLvlPanel;
+    public GameObject rememberPanel;
+
+    public int index;
 
     private Rigidbody2D rb;
 
     //COINS
-    public int coinsNeeded = 27; 
-    public int coinsCollected = 0; 
-    //
+    public TextMeshProUGUI coinsCounterText;
+    public int coinsNeeded = 27;
+    private int coinsCollected = 0;
+    private int coinsCounter = 0;
 
     public Volume volume;
     private Vignette vignette;
@@ -43,7 +45,6 @@ public class OnTrigger : MonoBehaviour
     public float stairsSpeed = 5f;
     private float smallPowerUp = 0.3f;
     private float bigPowerUp = 1f;
-    private int coinsCounter;
    
     private void Awake()
     {
@@ -53,15 +54,19 @@ public class OnTrigger : MonoBehaviour
     }
     private void Start()
     {
-        nextLvlPanel.SetActive(false);
-
+      
         volume.profile.TryGet(out vignette); //find and plug the vignette
 
         vignette.intensity.value = 0.5f;
         vignette.color.value = Color.red;
         
         healthScript = GetComponent<Health>();
-        //levelPlayerpref = GetComponent<LevelPlayerpref>();
+
+        loader = FindObjectOfType<Loader>();
+        if (loader == null)
+        {
+            Debug.LogError("Loader not found in the scene.");
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -82,14 +87,13 @@ public class OnTrigger : MonoBehaviour
             }
         }
 
-            //coins
-            if (other.gameObject.tag == "coins")
+        //coins
+        if (other.gameObject.tag == "coins")
         {
             coinsCollected++;
-
-            audioLibrary.PlaySound("coin");
-            Destroy(other.gameObject); //the collectable dissapear 
             coinsCounter++;
+            audioLibrary.PlaySound("coin");
+            Destroy(other.gameObject); // Hace que el objeto desaparezca
             coinsCounterText.text = $"{coinsCounter}";
         }
 
@@ -175,19 +179,22 @@ public class OnTrigger : MonoBehaviour
             healthScript.GetDamage();
         }
 
-        //ChangeLevel
+       //ChangeLevel
         if (coinsCollected >= coinsNeeded && other.CompareTag("PassLevel"))
         {
-            nextLvlPanel.SetActive(true);
-            //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            int nextSceneIndex = UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex + 1;
+            if (nextSceneIndex < UnityEngine.SceneManagement.SceneManager.sceneCountInBuildSettings)
+            {
+                loader.LoadScene(nextSceneIndex); 
+            }
         }
         else if (other.CompareTag("PassLevel"))
         {
            ShowRememberPanel();
         }
 
-            //bullet
-            if (other.CompareTag("bullet"))
+       //bullet
+        if (other.CompareTag("bullet"))
         {
             healthScript.GetDamage();
         }
