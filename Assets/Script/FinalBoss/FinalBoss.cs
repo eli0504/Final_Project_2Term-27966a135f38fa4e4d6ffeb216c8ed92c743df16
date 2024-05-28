@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Finalboss : MonoBehaviour
 {
-    private Health health;
-
     public Animator anim;
 
     public Transform pointA;
@@ -17,7 +15,6 @@ public class Finalboss : MonoBehaviour
     public float chaseRadius = 5f;
     public float attackRadius = 2f;
 
-    
     //clamp
     public float minY;
     public float maxY;
@@ -26,18 +23,13 @@ public class Finalboss : MonoBehaviour
 
     public bool isAttacking = false;
 
-    private void Awake()
-    {
-        anim = GetComponent<Animator>();
-    }
     private void Start()
     {
-        anim = GetComponent<Animator>();
-        health = GetComponent<Health>();
         Invoke("SetCurrentPoint", 1f);
-        SetCurrentPoint();
-    }
 
+        anim = GetComponent<Animator>();
+    }
+ 
     private void SetCurrentPoint()
     {
         currentPoint = pointB;

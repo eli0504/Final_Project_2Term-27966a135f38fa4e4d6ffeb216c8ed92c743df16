@@ -146,20 +146,6 @@ public class UIManager : MonoBehaviour
 
     //SCENES
 
-    public void GotoMainMenuScene()
-    {
-        SceneManager.LoadScene("MainMenu");
-    }
-    /* public void GotoPlayerPrefScene()
-     {
-         SceneManager.LoadScene("PlayerPref");
-     }*/
-
-    public void GotoInfoScene()
-    {
-        SceneManager.LoadScene("Info");
-    }
-
     public void GotoLevelOneScene()
     {
         SceneManager.LoadScene("Level1");

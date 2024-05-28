@@ -31,7 +31,22 @@ public class ability_boss_behaviour : StateMachineBehaviour
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         // Implement logic to handle faster attack rate if needed
-        animator.speed = finalboss.isAttacking ? health.attackSpeed : 1f;
+        float speed = 1f; 
+
+        if (finalboss.isAttacking)
+        {
+            if (health != null)
+            {
+                // If attacking, assign attack speed
+                speed = health.attackSpeed;
+            }
+            else
+            {
+                Debug.LogWarning("La variable 'health' es nula. No se puede obtener attackSpeed.");
+            }
+        }
+       
+        animator.speed = speed;
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
