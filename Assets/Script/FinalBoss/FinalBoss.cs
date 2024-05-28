@@ -33,6 +33,7 @@ public class Finalboss : MonoBehaviour
         anim = GetComponent<Animator>();
         health = GetComponent<Health>();
         Invoke("SetCurrentPoint", 1f);
+        SetCurrentPoint();
     }
 
     private void SetCurrentPoint()
@@ -42,22 +43,23 @@ public class Finalboss : MonoBehaviour
 
     private void Update()
     {
-        //clamp Y pos
+            //clamp Y pos
 
-        Vector3 actualYPos = transform.position;
+            Vector3 actualYPos = transform.position;
 
-        float newYPos = Mathf.Clamp(actualYPos.y, minY, maxY);
+            float newYPos = Mathf.Clamp(actualYPos.y, minY, maxY);
 
-        transform.position = new Vector3(actualYPos.x, newYPos, actualYPos.z);
+            transform.position = new Vector3(actualYPos.x, newYPos, actualYPos.z);
 
-        //clamp X pos
+            //clamp X pos
 
-        Vector3 actualXPos = transform.position;
+            Vector3 actualXPos = transform.position;
 
-        float newXPos = Mathf.Clamp(actualXPos.x, minX, maxX);
+            float newXPos = Mathf.Clamp(actualXPos.x, minX, maxX);
 
-        transform.position = new Vector3(newXPos, actualXPos.y, actualXPos.z);
-
+            transform.position = new Vector3(newXPos, actualXPos.y, actualXPos.z);
+        
+        
         //Stats
         float distance = Vector3.Distance(player.position, transform.position);
 
@@ -75,8 +77,7 @@ public class Finalboss : MonoBehaviour
              Attack();
 
         }
-        transform.position = Vector3.MoveTowards(transform.position, currentPoint.position, speed * Time.deltaTime);
-
+            transform.position = Vector3.MoveTowards(transform.position, currentPoint.position, speed * Time.deltaTime);
     }
 
     //The enemy will go from one point to another to patrol
