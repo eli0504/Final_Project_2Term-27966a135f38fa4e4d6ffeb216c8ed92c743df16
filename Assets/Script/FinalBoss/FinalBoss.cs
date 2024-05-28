@@ -24,7 +24,7 @@ public class Finalboss : MonoBehaviour
     public float maxX;
     public float minX;
 
-    private bool isAttacking = false;
+    public bool isAttacking = false;
 
     private void Awake()
     {

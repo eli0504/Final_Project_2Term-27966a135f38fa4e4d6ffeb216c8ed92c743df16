@@ -7,6 +7,7 @@ public class ability_boss_behaviour : StateMachineBehaviour
     [SerializeField] private GameObject ability;
     [SerializeField] private float offsetY; //ability pos
     private Finalboss finalboss;
+    private BossHealth health;
     private Transform player;
 
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
@@ -27,14 +28,18 @@ public class ability_boss_behaviour : StateMachineBehaviour
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
-    //override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    //{
-    //    
-    //}
+    override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    {
+        // Implement logic to handle faster attack rate if needed
+        animator.speed = finalboss.isAttacking ? health.attackSpeed : 1f;
+    }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        // Reset animator speed
+        animator.speed = 1f;
+
         // Set the boss to non-attacking state
         finalboss.SetAttacking(false);
     }
