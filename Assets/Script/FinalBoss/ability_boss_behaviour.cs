@@ -17,6 +17,9 @@ public class ability_boss_behaviour : StateMachineBehaviour
 
         finalboss.LookAtPlayer();
 
+        // Set the boss to attacking state
+        finalboss.SetAttacking(true);
+
         //where have the ability to appear
         Vector2 appearPos = new Vector2(player.position.x, player.position.y + offsetY);
 
@@ -30,10 +33,11 @@ public class ability_boss_behaviour : StateMachineBehaviour
     //}
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
-    //override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    //{
-    //    
-    //}
+    override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    {
+        // Set the boss to non-attacking state
+        finalboss.SetAttacking(false);
+    }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()
     //override public void OnStateMove(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)

@@ -6,7 +6,7 @@ public class Finalboss : MonoBehaviour
 {
     private Health health;
 
-    private Animator anim;
+    public Animator anim;
 
     public Transform pointA;
     public Transform pointB;
@@ -23,6 +23,8 @@ public class Finalboss : MonoBehaviour
     public float maxY;
     public float maxX;
     public float minX;
+
+    private bool isAttacking = false;
 
     private void Awake()
     {
@@ -61,23 +63,26 @@ public class Finalboss : MonoBehaviour
         
         
         //Stats
-        float distance = Vector3.Distance(player.position, transform.position);
-
-        if (distance > chaseRadius)
+        if(!isAttacking)
         {
-            Patrol();
-        }
-        else if (distance > attackRadius)
-        {
-            Chasing();
-        }
-        else
-        {
+            float distance = Vector3.Distance(player.position, transform.position);
 
-             Attack();
+            if (distance > chaseRadius)
+            {
+                Patrol();
+            }
+            else if (distance > attackRadius)
+            {
+                Chasing();
+            }
+            else
+            {
 
-        }
+                Attack();
+
+            }
             transform.position = Vector3.MoveTowards(transform.position, currentPoint.position, speed * Time.deltaTime);
+        }
     }
 
     //The enemy will go from one point to another to patrol
@@ -133,6 +138,12 @@ public class Finalboss : MonoBehaviour
         {
             transform.rotation = Quaternion.identity;
         }
+    }
+
+    // Method to set the attacking state
+    public void SetAttacking(bool attacking)
+    {
+        isAttacking = attacking;
     }
 
     //visual
