@@ -10,6 +10,8 @@ public class LevelPlayerpref : MonoBehaviour
 
     private OnTrigger onTrigger;
 
+    int collectedCoins = 0;
+
     private void Start()
     {
         onTrigger = GameObject.FindGameObjectWithTag("Player").GetComponent<OnTrigger>();
@@ -17,6 +19,9 @@ public class LevelPlayerpref : MonoBehaviour
 
     public void EnterHiddenLevel()
     {
+        // Guardar las monedas recogidas antes de entrar en el nivel oculto
+        SaveCollectedCoins();
+
         // Save the current scene and the player's position before entering the hidden level
         previousScene = SceneManager.GetActiveScene().name;
         returnPosition = GameObject.FindGameObjectWithTag("Player").transform.position;
@@ -47,6 +52,9 @@ public class LevelPlayerpref : MonoBehaviour
             {
                 player.transform.position = returnPosition;
             }
+
+            // Eliminar las monedas que ya fueron recogidas en el nivel anterior
+            RemoveCollectedCoins();
         }
     }
 
@@ -58,5 +66,22 @@ public class LevelPlayerpref : MonoBehaviour
     void OnDisable()
     {
         SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    void SaveCollectedCoins()
+    {
+        // Guardar las monedas recogidas en PlayerPrefs
+        if (onTrigger != null)
+        {
+            collectedCoins = onTrigger.coinsCollected;
+        }
+            
+        PlayerPrefs.SetInt("CollectedCoins", collectedCoins);
+    }
+
+    void RemoveCollectedCoins()
+    {
+        // Eliminar las monedas recogidas guardadas en PlayerPrefs
+        PlayerPrefs.DeleteKey("CollectedCoins");
     }
 }
