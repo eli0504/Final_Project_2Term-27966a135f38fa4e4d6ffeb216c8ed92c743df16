@@ -34,6 +34,8 @@ TagManager:
   - ability
   - crystal
   - ExitHiddenLevel
+  - GoldenCoin
+  - velocityPowerUp
   layers:
   - Default
   - TransparentFX

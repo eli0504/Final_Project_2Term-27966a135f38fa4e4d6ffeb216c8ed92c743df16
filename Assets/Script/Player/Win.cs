@@ -27,6 +27,16 @@ public class Win : MonoBehaviour
         }
     }
 
+    public void QuitWinPanel()
+    {
+        winPanel.SetActive(false);
+    }
+
+    public void ShowWinPanel()
+    {
+        winPanel.SetActive(true);
+    }
+
     IEnumerator waitForWinPanel()
     {
         yield return new WaitForSeconds(5);
