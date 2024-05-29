@@ -13,6 +13,7 @@ public class OnTrigger : MonoBehaviour
     private Loader loader;
     private Health healthScript;
     public LevelPlayerpref levelPlayerpref;
+    private PlayerController playerScript;
 
     public GameObject player;
     public GameObject bigPotion;
@@ -21,6 +22,7 @@ public class OnTrigger : MonoBehaviour
     public GameObject goldKey;
     public GameObject teleport;
     public GameObject dashPowerUp;
+    
     public GameObject rememberPanel;
 
     public int index;
@@ -30,8 +32,16 @@ public class OnTrigger : MonoBehaviour
     //COINS
     public TextMeshProUGUI coinsCounterText;
     public int coinsNeeded = 27;
+    public int goldenCoinsNeeded = 18;
     private int coinsCollected = 0;
     private int coinsCounter = 0;
+
+    //velocity power up
+    public GameObject velocityPowerUp;
+    private float originalSpeed; // Velocidad original del jugador
+    public float speedBoost = 20f; // Factor de aumento de velocidad
+    private float powerUpDuration = 20f; // Duración del Power-up
+    public TextMeshProUGUI countdownText;
 
     public Volume volume;
     private Vignette vignette;
@@ -40,9 +50,6 @@ public class OnTrigger : MonoBehaviour
     public ParticleSystem boxParticles2;
     public ParticleSystem dashParticles;
 
-
-    public float speed = 25f;
-    public float stairsSpeed = 5f;
     private float smallPowerUp = 0.3f;
     private float bigPowerUp = 1f;
    
@@ -54,7 +61,10 @@ public class OnTrigger : MonoBehaviour
     }
     private void Start()
     {
-      
+        playerScript = GetComponent<PlayerController>();
+
+        originalSpeed = playerScript.moveSpeed;
+
         volume.profile.TryGet(out vignette); //find and plug the vignette
 
         vignette.intensity.value = 0.5f;
@@ -97,6 +107,20 @@ public class OnTrigger : MonoBehaviour
             coinsCounterText.text = $"{coinsCounter}";
         }
 
+        if (other.gameObject.tag == "GoldenCoin")
+        {
+            coinsCollected++;
+            coinsCounter++;
+            audioLibrary.PlaySound("coin");
+            Destroy(other.gameObject); // Hace que el objeto desaparezca
+            coinsCounterText.text = $"{coinsCounter}";
+
+            if (coinsCollected == goldenCoinsNeeded)
+            {
+                Instantiate(velocityPowerUp, new Vector3(-5, -8, 0), Quaternion.identity);
+            }
+        }
+
         //PowerUp
         if (other.gameObject.tag == "smallPowerUp")
         {
@@ -109,6 +133,12 @@ public class OnTrigger : MonoBehaviour
             Destroy(other.gameObject);
             audioLibrary.PlaySound("poison");
             transform.localScale = new Vector3(bigPowerUp, bigPowerUp, 0);
+        }
+
+        if (other.gameObject.tag == "velocityPowerUp")
+        {
+            ActivatePowerUp();
+            Destroy(other.gameObject);
         }
 
         //enemies and traps
@@ -198,6 +228,30 @@ public class OnTrigger : MonoBehaviour
         {
             healthScript.GetDamage();
         }
+    }
+
+    //velocity power up
+    private void ActivatePowerUp()
+    {
+        StartCoroutine(PowerUpRoutine());
+    }
+
+    private IEnumerator PowerUpRoutine()
+    {
+        Debug.Log("Power-up activado");
+        playerScript.moveSpeed *= speedBoost;
+
+        float countdown = powerUpDuration;
+        while (countdown > 0)
+        {
+            countdownText.text = $"PowerUp:{countdown:F0}";
+            yield return new WaitForSeconds(1f);
+            countdown--;
+        }
+
+        playerScript.moveSpeed = originalSpeed;
+        countdownText.text = "Power-up terminado";
+        Debug.Log("Power-up desactivado");
     }
 
     //to remember the player to collect all the coins

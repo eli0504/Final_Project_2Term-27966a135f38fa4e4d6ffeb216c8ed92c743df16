@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private LayerMask groundLayerMask;
 
     private float horizontalInput;
-    private float moveSpeed = 10f;
+    public float moveSpeed = 10f;
 
     bool lookAtRight = true;
 
