@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class bossAbility : MonoBehaviour
 {
-    [SerializeField] private float daño;
     [SerializeField] private Vector2 boxDimensions;
     [SerializeField] private Transform boxPosition;
     [SerializeField] private float timeLife;

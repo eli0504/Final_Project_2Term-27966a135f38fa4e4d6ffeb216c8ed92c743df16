@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -12,8 +12,8 @@ public class OnTrigger : MonoBehaviour
 {
     private Loader loader;
     private Health healthScript;
-    public LevelPlayerpref levelPlayerpref;
     private PlayerController playerScript;
+    public LevelPlayerpref levelPlayerpref;
 
     public GameObject player;
     public GameObject bigPotion;
@@ -27,8 +27,6 @@ public class OnTrigger : MonoBehaviour
 
     public int index;
 
-    private Rigidbody2D rb;
-
     //COINS
     public TextMeshProUGUI coinsCounterText;
     public int coinsNeeded = 27;
@@ -38,9 +36,9 @@ public class OnTrigger : MonoBehaviour
 
     //velocity power up
     public GameObject velocityPowerUp;
-    private float originalSpeed; // Velocidad original del jugador
-    public float speedBoost = 20f; // Factor de aumento de velocidad
-    private float powerUpDuration = 20f; // Duraci�n del Power-up
+    private float originalSpeed; // Player's Original Speed
+    public float speedBoost = 20f; // Speed ​​increase factor
+    private float powerUpDuration = 20f; // Power-up duration
     public TextMeshProUGUI countdownText;
 
     public Volume volume;
@@ -62,14 +60,14 @@ public class OnTrigger : MonoBehaviour
     private void Start()
     {
         playerScript = GetComponent<PlayerController>();
-
         originalSpeed = playerScript.moveSpeed;
 
+        //vignette
         volume.profile.TryGet(out vignette); //find and plug the vignette
 
         vignette.intensity.value = 0.5f;
         vignette.color.value = Color.red;
-        
+
         healthScript = GetComponent<Health>();
 
         loader = FindObjectOfType<Loader>();
@@ -103,7 +101,7 @@ public class OnTrigger : MonoBehaviour
             coinsCollected++;
             coinsCounter++;
             audioLibrary.PlaySound("coin");
-            Destroy(other.gameObject); // Hace que el objeto desaparezca
+            Destroy(other.gameObject); 
             coinsCounterText.text = $"{coinsCounter}";
         }
 
@@ -112,7 +110,7 @@ public class OnTrigger : MonoBehaviour
             coinsCollected++;
             coinsCounter++;
             audioLibrary.PlaySound("coin");
-            Destroy(other.gameObject); // Hace que el objeto desaparezca
+            Destroy(other.gameObject); 
             coinsCounterText.text = $"{coinsCounter}";
 
             if (coinsCollected == goldenCoinsNeeded)
@@ -238,7 +236,6 @@ public class OnTrigger : MonoBehaviour
 
     private IEnumerator PowerUpRoutine()
     {
-        Debug.Log("Power-up activado");
         playerScript.moveSpeed *= speedBoost;
 
         float countdown = powerUpDuration;
@@ -250,8 +247,7 @@ public class OnTrigger : MonoBehaviour
         }
 
         playerScript.moveSpeed = originalSpeed;
-        countdownText.text = "Power-up terminado";
-        Debug.Log("Power-up desactivado");
+        countdownText.text = "0";
     }
 
     //to remember the player to collect all the coins

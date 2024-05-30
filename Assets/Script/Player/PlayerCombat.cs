@@ -13,13 +13,14 @@ public class PlayerCombat : MonoBehaviour
    
     public LayerMask enemyLayers;
 
+    [SerializeField] private float damage;
+
     public float attackRange = 0.5f;
 
     //time between attacks
     private float timeBetweenAttacks = 1;
     private float timeNextAttack;
-
-    [SerializeField]  private float damage;
+   
     private void Start()
     {
         enemyHealth = GetComponent<EnemyHealth>();
@@ -56,32 +57,26 @@ public class PlayerCombat : MonoBehaviour
         //Damage enemies
         foreach (Collider2D enemy in hitEnemies)
         {
-            // Intenta obtener el componente EnemyHealth del enemigo
             EnemyHealth enemyHealth = enemy.GetComponent<EnemyHealth>();
             if (enemyHealth != null)
             {
                 enemyHealth.TakeDamage();
             }
-            // Intenta obtener el componente BossHealth del enemigo
+
             BossHealth bossHealth = enemy.GetComponent<BossHealth>();
             if (bossHealth != null)
             {
-                // Si el componente BossHealth existe, aplica el daño de jefe
                 bossHealth.BossDamage();
             }
         }
 
-        // Después del bucle, verifica si hay una referencia al componente EnemyHealth
         if (enemyHealth != null)
         {
-            // Si la referencia es válida, aplica el daño al enemigo
             enemyHealth.TakeDamage();
         }
 
-        // También verifica si hay una referencia al componente BossHealth
         if (bossHealth != null)
         {
-            // Si la referencia es válida, aplica el daño de jefe
             bossHealth.BossDamage();
         }
     }

@@ -13,8 +13,6 @@ public class BossHealth : MonoBehaviour
 
     private int damageValue = 20; //damage from the player
 
-    private Win win;
-
     public GameObject goldKey;
 
     // Attack speed
@@ -26,7 +24,6 @@ public class BossHealth : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
-        win = GetComponent<Win>();
 
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);

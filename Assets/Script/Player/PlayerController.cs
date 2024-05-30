@@ -31,12 +31,9 @@ public class PlayerController : MonoBehaviour
     private float dashVelocity = 30;
     private float dashTime = 0.2f;
     private float initialGravity;
-    [SerializeField] private TrailRenderer trailRenderer;
-
-    // private bool canDash = false; // Start as false, only true after picking up ability
     private static bool canDash = false;
     private bool canMove = true;
-
+    [SerializeField] private TrailRenderer trailRenderer;
 
     private void Awake()
     {

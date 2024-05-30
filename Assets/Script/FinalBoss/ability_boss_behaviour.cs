@@ -40,10 +40,6 @@ public class ability_boss_behaviour : StateMachineBehaviour
                 // If attacking, assign attack speed
                 speed = health.attackSpeed;
             }
-            else
-            {
-                Debug.LogWarning("La variable 'health' es nula. No se puede obtener attackSpeed.");
-            }
         }
        
         animator.speed = speed;

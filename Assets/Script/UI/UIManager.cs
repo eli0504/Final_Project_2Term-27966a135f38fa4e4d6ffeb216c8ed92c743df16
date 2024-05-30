@@ -41,7 +41,6 @@ public class UIManager : MonoBehaviour
 
         Instance = this;
       
-       // QuitPausePanel();
         QuitControlPanel();
         QuitMusicPanel();
     }
@@ -161,7 +160,6 @@ public class UIManager : MonoBehaviour
     public void ResetGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-       // gameOver.gameOverPanel.SetActive(false);
         Time.timeScale = 1f;
         Health.lives = 3;
     }
