@@ -1481,6 +1481,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7817222438013427806, guid: 16baade13acc6854db68391ce9835c89, type: 3}
+      propertyPath: coinID
+      value: coin12
+      objectReference: {fileID: 0}
+    - target: {fileID: 7817222438013427806, guid: 16baade13acc6854db68391ce9835c89, type: 3}
+      propertyPath: coinsCounterText
+      value: 
+      objectReference: {fileID: 1226775737}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1728,6 +1736,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7817222438013427806, guid: 16baade13acc6854db68391ce9835c89, type: 3}
+      propertyPath: coinID
+      value: coin5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7817222438013427806, guid: 16baade13acc6854db68391ce9835c89, type: 3}
+      propertyPath: coinsCounterText
+      value: 
+      objectReference: {fileID: 1226775737}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1875,6 +1891,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7817222438013427806, guid: 16baade13acc6854db68391ce9835c89, type: 3}
+      propertyPath: coinID
+      value: coin21
+      objectReference: {fileID: 0}
+    - target: {fileID: 7817222438013427806, guid: 16baade13acc6854db68391ce9835c89, type: 3}
+      propertyPath: coinsCounterText
+      value: 
+      objectReference: {fileID: 1226775737}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8022,6 +8046,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7817222438013427806, guid: 16baade13acc6854db68391ce9835c89, type: 3}
+      propertyPath: coinID
+      value: coin22
+      objectReference: {fileID: 0}
+    - target: {fileID: 7817222438013427806, guid: 16baade13acc6854db68391ce9835c89, type: 3}
+      propertyPath: coinsCounterText
+      value: 
+      objectReference: {fileID: 1226775737}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8344,6 +8376,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7817222438013427806, guid: 16baade13acc6854db68391ce9835c89, type: 3}
+      propertyPath: coinID
+      value: coin26
+      objectReference: {fileID: 0}
+    - target: {fileID: 7817222438013427806, guid: 16baade13acc6854db68391ce9835c89, type: 3}
+      propertyPath: coinsCounterText
+      value: 
+      objectReference: {fileID: 1226775737}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8538,6 +8578,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7817222438013427806, guid: 16baade13acc6854db68391ce9835c89, type: 3}
+      propertyPath: coinID
+      value: coin7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7817222438013427806, guid: 16baade13acc6854db68391ce9835c89, type: 3}
+      propertyPath: coinsCounterText
+      value: 
+      objectReference: {fileID: 1226775737}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8740,6 +8788,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7817222438013427806, guid: 16baade13acc6854db68391ce9835c89, type: 3}
+      propertyPath: coinID
+      value: coin3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7817222438013427806, guid: 16baade13acc6854db68391ce9835c89, type: 3}
+      propertyPath: coinsCounterText
+      value: 
+      objectReference: {fileID: 1226775737}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8895,6 +8951,50 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1990388642770277005, guid: 1fab5b2dbd8542a419d4741c22609cbf, type: 3}
   m_PrefabInstance: {fileID: 451619604}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &453561011
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 453561013}
+  - component: {fileID: 453561012}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &453561012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 453561011}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30dfaccb974fbb04ea6de62c164ac8c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &453561013
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 453561011}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 8.006494, y: -6.686778, z: -0.12307945}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &469189807 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1990388642770277005, guid: 1fab5b2dbd8542a419d4741c22609cbf, type: 3}
@@ -38760,6 +38860,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7817222438013427806, guid: 16baade13acc6854db68391ce9835c89, type: 3}
+      propertyPath: coinID
+      value: coin14
+      objectReference: {fileID: 0}
+    - target: {fileID: 7817222438013427806, guid: 16baade13acc6854db68391ce9835c89, type: 3}
+      propertyPath: coinsCounterText
+      value: 
+      objectReference: {fileID: 1226775737}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -39154,6 +39262,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7817222438013427806, guid: 16baade13acc6854db68391ce9835c89, type: 3}
+      propertyPath: coinID
+      value: coin4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7817222438013427806, guid: 16baade13acc6854db68391ce9835c89, type: 3}
+      propertyPath: coinsCounterText
+      value: 
+      objectReference: {fileID: 1226775737}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -44687,6 +44803,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7817222438013427806, guid: 16baade13acc6854db68391ce9835c89, type: 3}
+      propertyPath: coinID
+      value: coin25
+      objectReference: {fileID: 0}
+    - target: {fileID: 7817222438013427806, guid: 16baade13acc6854db68391ce9835c89, type: 3}
+      propertyPath: coinsCounterText
+      value: 
+      objectReference: {fileID: 1226775737}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -45322,6 +45446,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7817222438013427806, guid: 16baade13acc6854db68391ce9835c89, type: 3}
+      propertyPath: coinID
+      value: coin16
+      objectReference: {fileID: 0}
+    - target: {fileID: 7817222438013427806, guid: 16baade13acc6854db68391ce9835c89, type: 3}
+      propertyPath: coinsCounterText
+      value: 
+      objectReference: {fileID: 1226775737}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -45542,6 +45674,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7817222438013427806, guid: 16baade13acc6854db68391ce9835c89, type: 3}
+      propertyPath: coinID
+      value: coin10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7817222438013427806, guid: 16baade13acc6854db68391ce9835c89, type: 3}
+      propertyPath: coinsCounterText
+      value: 
+      objectReference: {fileID: 1226775737}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -45612,6 +45752,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7817222438013427806, guid: 16baade13acc6854db68391ce9835c89, type: 3}
+      propertyPath: coinID
+      value: coin2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7817222438013427806, guid: 16baade13acc6854db68391ce9835c89, type: 3}
+      propertyPath: coinsCounterText
+      value: 
+      objectReference: {fileID: 1226775737}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -45747,6 +45895,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7817222438013427806, guid: 16baade13acc6854db68391ce9835c89, type: 3}
+      propertyPath: coinID
+      value: coin15
+      objectReference: {fileID: 0}
+    - target: {fileID: 7817222438013427806, guid: 16baade13acc6854db68391ce9835c89, type: 3}
+      propertyPath: coinsCounterText
+      value: 
+      objectReference: {fileID: 1226775737}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -45812,6 +45968,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7817222438013427806, guid: 16baade13acc6854db68391ce9835c89, type: 3}
+      propertyPath: coinID
+      value: coin1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7817222438013427806, guid: 16baade13acc6854db68391ce9835c89, type: 3}
+      propertyPath: coinsCounterText
+      value: 
+      objectReference: {fileID: 1226775737}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -46055,6 +46219,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7817222438013427806, guid: 16baade13acc6854db68391ce9835c89, type: 3}
+      propertyPath: coinID
+      value: coin19
+      objectReference: {fileID: 0}
+    - target: {fileID: 7817222438013427806, guid: 16baade13acc6854db68391ce9835c89, type: 3}
+      propertyPath: coinsCounterText
+      value: 
+      objectReference: {fileID: 1226775737}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -56712,6 +56884,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7817222438013427806, guid: 16baade13acc6854db68391ce9835c89, type: 3}
+      propertyPath: coinID
+      value: coin17
+      objectReference: {fileID: 0}
+    - target: {fileID: 7817222438013427806, guid: 16baade13acc6854db68391ce9835c89, type: 3}
+      propertyPath: coinsCounterText
+      value: 
+      objectReference: {fileID: 1226775737}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -57499,6 +57679,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7817222438013427806, guid: 16baade13acc6854db68391ce9835c89, type: 3}
+      propertyPath: coinID
+      value: coin20
+      objectReference: {fileID: 0}
+    - target: {fileID: 7817222438013427806, guid: 16baade13acc6854db68391ce9835c89, type: 3}
+      propertyPath: coinsCounterText
+      value: 
+      objectReference: {fileID: 1226775737}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -58746,6 +58934,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7817222438013427806, guid: 16baade13acc6854db68391ce9835c89, type: 3}
+      propertyPath: coinID
+      value: coin24
+      objectReference: {fileID: 0}
+    - target: {fileID: 7817222438013427806, guid: 16baade13acc6854db68391ce9835c89, type: 3}
+      propertyPath: coinsCounterText
+      value: 
+      objectReference: {fileID: 1226775737}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -58852,6 +59048,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7817222438013427806, guid: 16baade13acc6854db68391ce9835c89, type: 3}
+      propertyPath: coinID
+      value: coin27
+      objectReference: {fileID: 0}
+    - target: {fileID: 7817222438013427806, guid: 16baade13acc6854db68391ce9835c89, type: 3}
+      propertyPath: coinsCounterText
+      value: 
+      objectReference: {fileID: 1226775737}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -61641,6 +61845,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7817222438013427806, guid: 16baade13acc6854db68391ce9835c89, type: 3}
+      propertyPath: coinID
+      value: coin8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7817222438013427806, guid: 16baade13acc6854db68391ce9835c89, type: 3}
+      propertyPath: coinsCounterText
+      value: 
+      objectReference: {fileID: 1226775737}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -61711,6 +61923,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7817222438013427806, guid: 16baade13acc6854db68391ce9835c89, type: 3}
+      propertyPath: coinID
+      value: coin23
+      objectReference: {fileID: 0}
+    - target: {fileID: 7817222438013427806, guid: 16baade13acc6854db68391ce9835c89, type: 3}
+      propertyPath: coinsCounterText
+      value: 
+      objectReference: {fileID: 1226775737}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -61814,6 +62034,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7817222438013427806, guid: 16baade13acc6854db68391ce9835c89, type: 3}
+      propertyPath: coinsCounterText
+      value: 
+      objectReference: {fileID: 1226775737}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -66595,6 +66819,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7817222438013427806, guid: 16baade13acc6854db68391ce9835c89, type: 3}
+      propertyPath: coinID
+      value: coin11
+      objectReference: {fileID: 0}
+    - target: {fileID: 7817222438013427806, guid: 16baade13acc6854db68391ce9835c89, type: 3}
+      propertyPath: coinsCounterText
+      value: 
+      objectReference: {fileID: 1226775737}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -66732,6 +66964,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7817222438013427806, guid: 16baade13acc6854db68391ce9835c89, type: 3}
+      propertyPath: coinID
+      value: coin9
+      objectReference: {fileID: 0}
+    - target: {fileID: 7817222438013427806, guid: 16baade13acc6854db68391ce9835c89, type: 3}
+      propertyPath: coinsCounterText
+      value: 
+      objectReference: {fileID: 1226775737}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -66958,6 +67198,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7817222438013427806, guid: 16baade13acc6854db68391ce9835c89, type: 3}
+      propertyPath: coinID
+      value: coin13
+      objectReference: {fileID: 0}
+    - target: {fileID: 7817222438013427806, guid: 16baade13acc6854db68391ce9835c89, type: 3}
+      propertyPath: coinsCounterText
+      value: 
+      objectReference: {fileID: 1226775737}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -67059,6 +67307,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7817222438013427806, guid: 16baade13acc6854db68391ce9835c89, type: 3}
+      propertyPath: coinID
+      value: coin18
+      objectReference: {fileID: 0}
+    - target: {fileID: 7817222438013427806, guid: 16baade13acc6854db68391ce9835c89, type: 3}
+      propertyPath: coinsCounterText
+      value: 
+      objectReference: {fileID: 1226775737}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -67660,6 +67916,7 @@ SceneRoots:
   - {fileID: 360272614}
   - {fileID: 123970004}
   - {fileID: 1577502536}
-  - {fileID: 1202241571}
   - {fileID: 20939165}
   - {fileID: 1209379098}
+  - {fileID: 453561013}
+  - {fileID: 1202241571}

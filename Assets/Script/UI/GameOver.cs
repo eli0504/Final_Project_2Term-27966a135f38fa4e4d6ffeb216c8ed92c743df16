@@ -15,5 +15,7 @@ public class GameOver : MonoBehaviour
         Time.timeScale = 0f; // stop time
         gameOverPanel.SetActive(true);
         audioLibrary.PlaySound("gameOverSound");
+
+        GameManager.instance.ResetCollectedCoins();
     }
 }

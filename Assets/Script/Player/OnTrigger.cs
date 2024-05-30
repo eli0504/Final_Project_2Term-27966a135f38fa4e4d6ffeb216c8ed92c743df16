@@ -10,6 +10,7 @@ using System;
 
 public class OnTrigger : MonoBehaviour
 {
+    private coins coinsScript;
     private Loader loader;
     private Health healthScript;
     private PlayerController playerScript;
@@ -59,6 +60,14 @@ public class OnTrigger : MonoBehaviour
     }
     private void Start()
     {
+        //coin
+        // Destroy the coin if it has already been collected
+       /* if (GameManager.instance.IsCoinCollected(coinsScript.coinID))
+        {
+            Destroy(gameObject);
+        }*/
+        UpdateCoinsCounterText();
+
         playerScript = GetComponent<PlayerController>();
         originalSpeed = playerScript.moveSpeed;
 
@@ -68,6 +77,7 @@ public class OnTrigger : MonoBehaviour
         vignette.intensity.value = 0.5f;
         vignette.color.value = Color.red;
 
+        coinsScript = GetComponent<coins>();
         healthScript = GetComponent<Health>();
 
         loader = FindObjectOfType<Loader>();
@@ -98,11 +108,21 @@ public class OnTrigger : MonoBehaviour
         //coins
         if (other.gameObject.tag == "coins")
         {
-            coinsCollected++;
-            coinsCounter++;
-            audioLibrary.PlaySound("coin");
-            Destroy(other.gameObject); 
-            coinsCounterText.text = $"{coinsCounter}";
+            var coin = other.GetComponent<coins>();
+
+            if (coin != null)
+            {
+                GameManager.instance.CollectCoin(coinsScript.coinID);
+
+                coinsCollected++;
+                coinsCounter++;
+
+                audioLibrary.PlaySound("coin");
+
+                Destroy(other.gameObject);
+
+                UpdateCoinsCounterText();
+            }
         }
 
         if (other.gameObject.tag == "GoldenCoin")
@@ -225,6 +245,14 @@ public class OnTrigger : MonoBehaviour
         if (other.CompareTag("bullet"))
         {
             healthScript.GetDamage();
+        }
+    }
+
+    private void UpdateCoinsCounterText()
+    {
+        if (coinsCounterText != null)
+        {
+            coinsCounterText.text = $"{coinsCounter}";
         }
     }
 

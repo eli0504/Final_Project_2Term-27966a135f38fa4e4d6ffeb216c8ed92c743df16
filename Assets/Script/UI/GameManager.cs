@@ -5,15 +5,30 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    
+    public static GameManager instance;
+
+    // List to save the IDs of the collected coins
+    private HashSet<string> collectedCoins = new HashSet<string>();
+
     //PlayerData
-    public GameObject player;
-    public SaveSystem saveSystem;
+    private GameObject player;
+    private SaveSystem saveSystem;
 
     private void Awake()
     {
-        SceneManager.sceneLoaded += Initialize;
-        DontDestroyOnLoad(gameObject);
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+            SceneManager.sceneLoaded += Initialize;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+
+        //SceneManager.sceneLoaded += Initialize;
+       // DontDestroyOnLoad(gameObject);
     }
 
     private void Initialize(Scene scene, LoadSceneMode sceneMode)
@@ -27,20 +42,40 @@ public class GameManager : MonoBehaviour
             player = playerController.gameObject;
 
             saveSystem = FindObjectOfType<SaveSystem>();
-
-            if (player != null && saveSystem.loadedData != null)
+            if (saveSystem != null && saveSystem.loadedData != null)
             {
                 var damagable = player.GetComponent<Health>();
-                damagable.numberOfHearts = saveSystem.loadedData.playerHealth; //Updates the player's number of hearts with the loaded value
+                if (damagable != null)
+                {
+                    damagable.numberOfHearts = saveSystem.loadedData.playerHealth;
+             
+                }
             }
         }
     }
    
    public void SaveData() //save player health for next level
     {
-        if(player != null)
+        if (player != null && saveSystem != null)
         {
             saveSystem.SaveData(SceneManager.GetActiveScene().buildIndex + 1, player.GetComponent<Health>().numberOfHearts);
         }
+    }
+
+    // Method for recording a collected coin
+    public void CollectCoin(string coinID)
+    {
+        collectedCoins.Add(coinID);
+    }
+
+    // Method to verify if a coin has been collected
+    public bool IsCoinCollected(string coinID)
+    {
+        return collectedCoins.Contains(coinID);
+    }
+
+    public void ResetCollectedCoins()
+    {
+        collectedCoins.Clear();
     }
 }
