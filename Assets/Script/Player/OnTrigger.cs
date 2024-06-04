@@ -30,7 +30,7 @@ public class OnTrigger : MonoBehaviour
 
     //COINS
     public TextMeshProUGUI coinsCounterText;
-    public int coinsNeeded = 15;
+    private int coinsNeeded = 15;
     public int goldenCoinsNeeded = 18;
     public int coinsCollected = 0;
     private int coinsCounter = 0;
