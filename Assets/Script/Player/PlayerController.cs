@@ -156,7 +156,7 @@ public class PlayerController : MonoBehaviour
         trailRenderer.emitting = false;
     }
 
-    private void Flip()
+    public void Flip()
     {
         Vector3 currentScale = gameObject.transform.localScale;
         currentScale.x *= -1;
