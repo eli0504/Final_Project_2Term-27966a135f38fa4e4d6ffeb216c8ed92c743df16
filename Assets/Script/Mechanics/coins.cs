@@ -11,7 +11,12 @@ public class coins : MonoBehaviour
 
     private void Start()
     {
-        // Destruir la moneda si ya ha sido recogida
+        if (GameManager.instance == null)
+        {
+            return;
+        }
+
+        // destroy coin if it's collected
         if (GameManager.instance.IsCoinCollected(coinID))
         {
             Destroy(gameObject);
@@ -23,8 +28,11 @@ public class coins : MonoBehaviour
         //coins
         if (other.gameObject.tag == "Player")
         {
+            if(GameManager.instance != null)
+            {
                 GameManager.instance.CollectCoin(coinID);
                 Destroy(gameObject);
+            }
         }
     }
 

@@ -26,9 +26,6 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-
-        //SceneManager.sceneLoaded += Initialize;
-       // DontDestroyOnLoad(gameObject);
     }
 
     private void Initialize(Scene scene, LoadSceneMode sceneMode)
@@ -72,6 +69,11 @@ public class GameManager : MonoBehaviour
     public bool IsCoinCollected(string coinID)
     {
         return collectedCoins.Contains(coinID);
+    }
+
+    public int GetCollectedCoinsCount()
+    {
+        return collectedCoins.Count;
     }
 
     public void ResetCollectedCoins()

@@ -7,6 +7,7 @@ using TMPro;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 using System;
+using static UnityEngine.Rendering.DebugUI;
 
 public class OnTrigger : MonoBehaviour
 {
@@ -29,7 +30,7 @@ public class OnTrigger : MonoBehaviour
 
     //COINS
     public TextMeshProUGUI coinsCounterText;
-    public int coinsNeeded = 27;
+    public int coinsNeeded = 15;
     public int goldenCoinsNeeded = 18;
     public int coinsCollected = 0;
     private int coinsCounter = 0;
@@ -59,6 +60,8 @@ public class OnTrigger : MonoBehaviour
     }
     private void Start()
     {
+        ShowPanelOnlyLevelOne();
+
         playerScript = GetComponent<PlayerController>();
         originalSpeed = playerScript.moveSpeed;
 
@@ -219,7 +222,7 @@ public class OnTrigger : MonoBehaviour
         }
         else if (other.CompareTag("PassLevel"))
         {
-           ShowRememberPanel();
+            StartCoroutine(ShowRememberPanel());
         }
 
        //bullet
@@ -253,16 +256,30 @@ public class OnTrigger : MonoBehaviour
     }
 
     //to remember the player to collect all the coins
-    public void ShowRememberPanel()
+    private IEnumerator ShowRememberPanel()
     {
-
         rememberPanel.SetActive(true);
-
+        yield return new WaitForSeconds(4f);
+        QuitRememberPanel();
     }
 
     public void QuitRememberPanel()
     {
         rememberPanel.SetActive(false);
+    }
+
+    public void ShowPanelOnlyLevelOne()
+    {
+        int sceneIndex = SceneManager.GetActiveScene().buildIndex;
+
+        if (sceneIndex == 2)
+        {
+            StartCoroutine(ShowRememberPanel());
+        }
+        else
+        {
+            QuitRememberPanel();
+        }
     }
 
     //coroutine to change color and disable vignette
