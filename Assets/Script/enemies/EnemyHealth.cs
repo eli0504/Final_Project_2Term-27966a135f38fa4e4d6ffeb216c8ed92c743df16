@@ -29,13 +29,14 @@ public class EnemyHealth : MonoBehaviour
 
         if (currentHealth <= 0)
         {
-            Invoke("Died", 2f);
+            StartCoroutine(Died());
         }
     }
 
-    private void Died()
+    private IEnumerator Died()
     {
         anim.SetBool("isDead", true);
+        yield return new WaitForSeconds(1);
         Destroy(gameObject);
     }
 }

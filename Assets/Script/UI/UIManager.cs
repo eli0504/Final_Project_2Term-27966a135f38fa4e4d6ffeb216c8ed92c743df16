@@ -6,8 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
-    private GameOver gameOver;
-
     public static UIManager Instance { get; private set; }
 
     private bool isPaused;
@@ -16,6 +14,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject pausePanel;
     [SerializeField] private GameObject settingsPanel;
     [SerializeField] private GameObject creditsPanel;
+    [SerializeField] private GameObject rememberPanel;
     [SerializeField] private GameObject controlPanel;
     [SerializeField] private GameObject musicPanel;
 
@@ -48,8 +47,6 @@ public class UIManager : MonoBehaviour
     private void Start()
     {
         isPaused = false;
-
-        gameOver = GetComponent<GameOver>();
     }
 
     private void Update()
@@ -85,7 +82,7 @@ public class UIManager : MonoBehaviour
 
     public void ShowPausePanel()
     {
-
+        rememberPanel.SetActive(false);
         pausePanel.SetActive(true);
 
     }
@@ -96,9 +93,8 @@ public class UIManager : MonoBehaviour
     //setings
     public void ShowSettingsPanel()
     {
-
         settingsPanel.SetActive(true);
-
+        rememberPanel.SetActive(false);
     }
     public void QuitSettingsPanel()
     {
@@ -108,9 +104,8 @@ public class UIManager : MonoBehaviour
     //credits
     public void ShowCreditsPanel()
     {
-
         creditsPanel.SetActive(true);
-
+        rememberPanel.SetActive(false);
     }
     public void QuitCreditsPanel()
     {
@@ -142,20 +137,6 @@ public class UIManager : MonoBehaviour
     {
         musicPanel.SetActive(false);
     }
-
-    //SCENES
-
-    public void GotoLevelOneScene()
-    {
-        SceneManager.LoadScene("Level1");
-    }
-
-    public void GotoLevelTwoScene()
-    {
-
-        SceneManager.LoadScene("Level2");
-    }
-
 
     public void ResetGame()
     {

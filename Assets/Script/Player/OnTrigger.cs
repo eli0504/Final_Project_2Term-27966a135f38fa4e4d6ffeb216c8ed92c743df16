@@ -25,6 +25,7 @@ public class OnTrigger : MonoBehaviour
     public GameObject dashPowerUp;
     
     public GameObject rememberPanel;
+    public GameObject powerupPanel;
 
     public int index;
 
@@ -244,6 +245,10 @@ public class OnTrigger : MonoBehaviour
 
     private IEnumerator PowerUpRoutine()
     {
+        powerupPanel.SetActive(true);
+        yield return new WaitForSeconds(2f);
+        powerupPanel.SetActive(false);
+
         playerScript.moveSpeed *= speedBoost;
 
         float countdown = powerUpDuration;
