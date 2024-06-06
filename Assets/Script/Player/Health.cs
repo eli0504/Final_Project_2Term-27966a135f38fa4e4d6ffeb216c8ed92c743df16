@@ -58,6 +58,7 @@ public class Health : MonoBehaviour
     //When the player takes damage, their lives are subtracted
     public void GetDamage()
     {
+        anim.SetBool("hurt", true);
         lives--;
         audioLibrary.PlaySound("hurt");
         if (lives <= 0)
