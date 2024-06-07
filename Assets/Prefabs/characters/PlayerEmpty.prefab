@@ -102,14 +102,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0db2c3cd1cb7b341b37eef1cc4d53b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coinsCounterText: {fileID: 0}
-  keysCounterText: {fileID: 0}
+  levelPlayerpref: {fileID: 0}
   player: {fileID: 8628668564984458613}
   bigPotion: {fileID: 1296189539786579172, guid: b5a10f8b0e7fcc6409212ee9ec79fc41, type: 3}
   smallPotion: {fileID: 7641845878760227311, guid: 3d8e22e4743fc354782027efc4f052d9, type: 3}
   heart: {fileID: 5525749225696024394, guid: 7c56f779cc604f44cae8dc7d839f00c3, type: 3}
-  speed: 25
-  stairsSpeed: 5
+  goldKey: {fileID: 0}
+  teleport: {fileID: 0}
+  dashPowerUp: {fileID: 0}
+  rememberPanel: {fileID: 0}
+  powerupPanel: {fileID: 0}
+  index: 0
+  coinsCounterText: {fileID: 0}
+  goldenCoinsNeeded: 18
+  coinsCollected: 0
+  velocityPowerUp: {fileID: 0}
+  speedBoost: 20
+  countdownText: {fileID: 0}
+  volume: {fileID: 0}
+  boxParticles: {fileID: 0}
+  boxParticles2: {fileID: 0}
+  dashParticles: {fileID: 0}
 --- !u!114 &6981954663249773321
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -127,8 +140,8 @@ MonoBehaviour:
   enemyLayers:
     serializedVersion: 2
     m_Bits: 256
+  damage: 0
   attackRange: 0.82
-  attackDamage: 40
 --- !u!114 &7008557588276518352
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -141,13 +154,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e9cd75c46bcb6349a6008ea290a660d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 8628668564984458613}
   groundLayerMask:
     serializedVersion: 2
     m_Bits: 64
+  moveSpeed: 10
   jumpsMade: 0
   maxJumps: 2
   jumpSpeed: 23
+  shiftImageBlocked: {fileID: 0}
+  shiftImageUnlocked: {fileID: 0}
+  skillPanel: {fileID: 0}
+  trailRenderer: {fileID: 0}
 --- !u!50 &1883127409045673184
 Rigidbody2D:
   serializedVersion: 4
@@ -232,7 +249,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a7f170c251de6d47b06cef9837981fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameOverPanel: {fileID: 0}
+  gameOverPanel: {fileID: 5870605395948638874, guid: 9e43b2bb002dd0a41bbf7c704d5a655c, type: 3}
 --- !u!1001 &2087843813472231929
 PrefabInstance:
   m_ObjectHideFlags: 0
