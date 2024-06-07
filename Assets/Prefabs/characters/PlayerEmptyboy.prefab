@@ -86,9 +86,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numberOfHearts: 3
   hearts:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 4476259063708912698, guid: 9605e57a8ffe6574c966aa6fc43ac034, type: 3}
+  - {fileID: 3311855051528323472, guid: d93ce2d42f2e17d44820570769573bba, type: 3}
+  - {fileID: 367969082998118159, guid: 17600145c3e517a41959b14553a25548, type: 3}
   fullHeart: {fileID: 21300000, guid: ee12aa9fb8fee234b933a47d735c4566, type: 3}
   emptyHeart: {fileID: 21300000, guid: 3170d023c2dd667428539ead9f434818, type: 3}
 --- !u!114 &5350889030614307593
@@ -114,7 +114,7 @@ MonoBehaviour:
   rememberPanel: {fileID: 0}
   powerupPanel: {fileID: 0}
   index: 0
-  coinsCounterText: {fileID: 0}
+  coinsCounterText: {fileID: 7807949370772955202, guid: 5e91c51741704be4aa7921eafa349c27, type: 3}
   goldenCoinsNeeded: 18
   coinsCollected: 0
   velocityPowerUp: {fileID: 0}
