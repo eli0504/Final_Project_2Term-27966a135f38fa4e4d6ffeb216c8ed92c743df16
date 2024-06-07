@@ -3269,7 +3269,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1820688211126051910, guid: 7d4bac631e6840343937e8debeafb052, type: 3}
       propertyPath: m_text
-      value: play
+      value: next
       objectReference: {fileID: 0}
     - target: {fileID: 1820688211126051910, guid: 7d4bac631e6840343937e8debeafb052, type: 3}
       propertyPath: m_fontSize
@@ -3405,11 +3405,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6058205471055492752, guid: 7d4bac631e6840343937e8debeafb052, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 6.7999773
+      value: 14.659995
+      objectReference: {fileID: 0}
+    - target: {fileID: 6058205471055492752, guid: 7d4bac631e6840343937e8debeafb052, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -7.300003
       objectReference: {fileID: 0}
     - target: {fileID: 6058205471055492752, guid: 7d4bac631e6840343937e8debeafb052, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 3.4000115
+      value: -4.130002
       objectReference: {fileID: 0}
     - target: {fileID: 7340398225741724446, guid: 7d4bac631e6840343937e8debeafb052, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
