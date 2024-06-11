@@ -6,38 +6,45 @@ using UnityEngine.SceneManagement;
 public class LevelPlayerpref : MonoBehaviour
 {
     public string previousScene = "Level2";
+    public Vector3 returnPosition = new Vector3(16.80f, 5.55f, 0);
+
+    private OnTrigger onTrigger;
+
+    private void Start()
+    {
+        onTrigger = GameObject.FindGameObjectWithTag("Player").GetComponent<OnTrigger>();
+    }
 
     public void EnterHiddenLevel()
     {
         // Save the current scene and the player's position before entering the hidden level
         previousScene = SceneManager.GetActiveScene().name;
+        returnPosition = GameObject.FindGameObjectWithTag("Player").transform.position;
 
-         if (string.IsNullOrEmpty(previousScene))
-         {
-             Debug.LogError("Previous scene name is empty or null.");
-             return;
-         }
+        if (string.IsNullOrEmpty(previousScene))
+        {
+            Debug.LogError("Previous scene name is empty or null.");
+            return;
+        }
 
-         SceneManager.LoadScene("secretroom");
+        SceneManager.LoadScene("secretroom");
     }
 
     public void ExitHiddenLevel()
     {
-        //check if previos scene is empty or null
         if (!string.IsNullOrEmpty(previousScene))
         {
             SceneManager.LoadScene(previousScene);
         }
     }
 
-    /*void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         if (scene.name == previousScene)
         {
             GameObject player = GameObject.FindGameObjectWithTag("Player");
             if (player != null)
             {
-                //If the player object is found, restore its position to returnPosition
                 player.transform.position = returnPosition;
             }
         }
@@ -51,5 +58,5 @@ public class LevelPlayerpref : MonoBehaviour
     void OnDisable()
     {
         SceneManager.sceneLoaded -= OnSceneLoaded;
-    }*/
+    }
 }
